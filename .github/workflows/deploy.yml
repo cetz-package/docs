@@ -1,0 +1,39 @@
+name: Deploy Book
+on:
+  push:
+    branches:
+      - main
+    path:
+      - book
+
+env:
+  MDBOOK_OUTPUT__HTML__SITE_URL: /docs/
+  MDBOOK_PREPROCESSOR__TYPST_DOC__COMMAND: ../mdbook-typst-doc
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # To push a branch 
+      pages: write  # To push to a GitHub Pages site
+      id-token: write # To update the deployment status
+    steps:
+      - uses: actions/checkout@v4
+      - uses: robinraju/release-downloader@v1.9
+        with:
+          repository: "fenjalien/mdbook-typst-doc"
+          latest: true
+          fileName: mdbook-typst-doc
+      - uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: "0.4.37"
+      - uses: typst-community/setup-typst@v3
+      - name: Build Book
+        run: |
+          cd book
+          mdbook build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book/book

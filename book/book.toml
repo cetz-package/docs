@@ -1,0 +1,57 @@
+[book]
+authors = ["fenjalien"]
+language = "en"
+multilingual = false
+src = "src"
+title = "CeTZ - Documentation"
+description = "Documentation for the Typst drawing package CeTZ"
+
+[output.html]
+git-repository-url = "https://github.com/cetz-package/docs"
+site-url = "/docs/"
+
+# Include the recommeded .css file
+additional-css = ["typst-doc.css"]
+
+[preprocessor.typst-doc]
+command = "./mdbook-typst-doc"
+
+
+# typst-command = "typst"
+# root-arg = ".."
+
+# The default css class to give to types that are not included in the table below
+default-type-class = "obj"
+
+# Recommended types to include for your book
+[preprocessor.typst-doc.types]
+int = {link = "https://typst.app/docs/reference/foundations/int/", class = "num"}
+float = {link = "https://typst.app/docs/reference/foundations/float/", class = "num"}
+angle = {link = "https://typst.app/docs/reference/layout/angle/", class = "num"}
+color = {class = "color", link = "https://typst.app/docs/reference/visualize/color/"}
+gradient = {class = "color", link = "https://typst.app/docs/reference/visualize/gradient/"}
+content = {link = "https://typst.app/docs/reference/foundations/content/", class = "con"}
+bool = {link = "https://typst.app/docs/reference/foundations/bool/", class = "bool"}
+str = {link  = "https://typst.app/docs/reference/foundations/str/", class = "str"}
+auto = {class = "keyword"}
+none = {class = "keyword"}
+pattern = {link = "https://typst.app/docs/reference/visualize/pattern/"}
+stroke = {link = "https://typst.app/docs/reference/visualize/stroke/"}
+dictionary = {link = "https://typst.app/docs/reference/foundations/dictionary/"}
+array = {link = "https://typst.app/docs/reference/foundations/array/"}
+direction = {link = "https://typst.app/docs/reference/layout/direction/"}
+
+
+# Example templates for "typ" and "typc" code blocks.
+# "{{input}}" will be replaced by the text in the code block.
+[preprocessor.typst-doc.code-templates]
+typ = """
+#set page(height: auto, fill: white)
+{{input}}
+"""
+typc = """
+#set page(height: auto, fill: white)
+#{
+  {{input}}
+}
+"""

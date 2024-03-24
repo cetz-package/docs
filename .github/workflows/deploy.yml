@@ -5,6 +5,7 @@ on:
       - main
     path:
       - book
+      - .github/workflows
 
 env:
   MDBOOK_OUTPUT__HTML__SITE_URL: /docs/
@@ -30,6 +31,7 @@ jobs:
       - uses: typst-community/setup-typst@v3
       - name: Build Book
         run: |
+          chmod +x ./mdbook-typst-doc
           cd book
           mdbook build
       - name: Deploy

@@ -2,12 +2,14 @@
 
 - [Overview](overview.md)
 
-- [Getting Started]()
+- [Getting Started](getting-started.md)
 
 - [Basics]()
-  - [Styling]()
-  - [Coordinate Systems]()
-  - [Anchors]()
+  - [Custom Types](basics/custom-types.md)
+  - [Styling](basics/styling.md)
+  - [Coordinate Systems](basics/coordinate-systems.md)
+  - [Anchors](basics/anchors.md)
+  - [Marks](basics/marks.md)
 
 - [Libraries]()
   - [Tree]()

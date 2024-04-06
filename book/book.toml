@@ -9,6 +9,7 @@ description = "Documentation for the Typst drawing package CeTZ"
 [output.html]
 git-repository-url = "https://github.com/cetz-package/docs"
 site-url = "/docs/"
+mathjax-support = true
 
 # Include the recommeded .css file
 additional-css = ["typst-doc.css"]
@@ -25,9 +26,20 @@ default-type-class = "obj"
 
 # Recommended types to include for your book
 [preprocessor.typst-doc.types]
+# Custom types
+number = {link = "custom-types.md#number", class = "num"}
+coordinate = {link = "custom-types.md#coordinate"}
+style = {link = "custom-types.md#style"}
+context = {link = "custom-types.md#context"}
+vector = {link = "custom-types.md#vector"}
+
+# Typst types
 int = {link = "https://typst.app/docs/reference/foundations/int/", class = "num"}
 float = {link = "https://typst.app/docs/reference/foundations/float/", class = "num"}
+length = {link = "https://typst.app/docs/reference/layout/length", class = "num"}
 angle = {link = "https://typst.app/docs/reference/layout/angle/", class = "num"}
+ratio = {link = "https://typst.app/docs/reference/layout/ratio/", class = "num"}
+
 color = {class = "color", link = "https://typst.app/docs/reference/visualize/color/"}
 gradient = {class = "color", link = "https://typst.app/docs/reference/visualize/gradient/"}
 content = {link = "https://typst.app/docs/reference/foundations/content/", class = "con"}
@@ -47,11 +59,14 @@ direction = {link = "https://typst.app/docs/reference/layout/direction/"}
 [preprocessor.typst-doc.code-templates]
 typ = """
 #set page(height: auto, fill: white)
+#import "@preview/cetz:0.2.2"
 {{input}}
 """
 typc = """
-#set page(height: auto, fill: white)
-#{
+#set page(height: auto, fill: yellow.lighten(95%), margin: 1cm)
+#import "@preview/cetz:0.2.2"
+#align(center, cetz.canvas({
+  import cetz.draw: *
   {{input}}
-}
+}))
 """

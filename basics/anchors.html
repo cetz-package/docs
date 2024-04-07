@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Anchors - CeTZ - Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Documentation for the Typst drawing package CeTZ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../typst-doc.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basics/custom-types.html"><strong aria-hidden="true">3.1.</strong> Custom Types</a></li><li class="chapter-item expanded "><a href="../basics/styling.html"><strong aria-hidden="true">3.2.</strong> Styling</a></li><li class="chapter-item expanded "><a href="../basics/coordinate-systems.html"><strong aria-hidden="true">3.3.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../basics/anchors.html" class="active"><strong aria-hidden="true">3.4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="../basics/marks.html"><strong aria-hidden="true">3.5.</strong> Marks</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Libraries</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Tree</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Plot</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Chart</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> Palette</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.5.</strong> Angle</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.6.</strong> Decorations</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Internals</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Context</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> Elements</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Advanced</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> Custom Elements</div></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CeTZ - Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cetz-package/docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="anchors"><a class="header" href="#anchors">Anchors</a></h1>
+<p>You can refer to a position relative to an element by using its anchors. Anchors come in three different variations but can all be used in two ways.</p>
+<p>The first is by using the <code>anchor</code> argument on an element. When given, the element will be translated such that the given anchor will be wher the given position is. This is supported by all elements that have the <code>anchor</code> argument.</p>
+<div class="example">
+<p><img src="/mdbook-typst-doc/51d3a.svg" alt="" /></p>
+<pre><code><span class="typ-comment">// Draw a circle and place its &quot;west&quot; anchor at the origin.</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;west&quot;</span><span class="typ-punct">)</span>
+
+<span class="typ-comment">// Draw a smaller red circle at the origin.</span>
+<span class="typ-func">fill</span><span class="typ-punct">(</span>red<span class="typ-punct">)</span>
+<span class="typ-func">stroke</span><span class="typ-punct">(</span><span class="typ-key">none</span><span class="typ-punct">)</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">0.3</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>The second is by using <a href="coordinate-systems.html#anchor">anchor coordinates</a>. You must first give the element a name by passing a string to its <code>name</code> argument, you can then use its anchors to place other elements. Note that this is only available for elements that have a <code>name</code> argument.</p>
+<div class="example">
+<p><img src="/mdbook-typst-doc/43922.svg" alt="" /></p>
+<pre><code><span class="typ-comment">// Name the circle</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">)</span>
+
+<span class="typ-comment">// Draw a smaller red circle at &quot;circle&quot;&#39;s east anchor</span>
+<span class="typ-func">fill</span><span class="typ-punct">(</span>red<span class="typ-punct">)</span>
+<span class="typ-func">stroke</span><span class="typ-punct">(</span><span class="typ-key">none</span><span class="typ-punct">)</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-str">&quot;circle.east&quot;</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">0.3</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<h2 id="named"><a class="header" href="#named">Named</a></h2>
+<p>Named anchors are normally unique to the type of element, such as a bezier curve's control points. Other border and path anchors specify their own named anchors that are available to all elements that support border or path anchors.</p>
+<p>Elements that have an <code>anchor</code> argument also have a "default" named anchor. You can use it by just giving the element's name without an anchor.</p>
+<h2 id="border"><a class="header" href="#border">Border</a></h2>
+<p>A border anchor refers to a point on the element's border where a ray is cast from the element's center at a given angle and hits the border.</p>
+<p>They are given as angles where <code>0deg</code> is towards the right and <code>90deg</code> is up.</p>
+<p>Border anchors also specify named compass directions such as "north", "north-east", etc. Border anchors aslo specify a "center" named anchor which is where the ray cast originates from.</p>
+<div class="example">
+<p><img src="/mdbook-typst-doc/b41a8.svg" alt="" /></p>
+<pre><code><span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">1</span><span class="typ-punct">)</span>
+
+<span class="typ-func">set-style</span><span class="typ-punct">(</span>content<span class="typ-punct">:</span> <span class="typ-punct">(</span>frame<span class="typ-punct">:</span> <span class="typ-str">&quot;rect&quot;</span><span class="typ-punct">,</span> stroke<span class="typ-punct">:</span> <span class="typ-key">none</span><span class="typ-punct">,</span> fill<span class="typ-punct">:</span> white<span class="typ-punct">,</span> padding<span class="typ-punct">:</span> <span class="typ-num">.1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-punct">(</span>name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-num">0deg</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>0deg<span class="typ-punct">]</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;west&quot;</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-punct">(</span>name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-num">160deg</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>160deg<span class="typ-punct">]</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;south-east&quot;</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-str">&quot;circle.north&quot;</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>North<span class="typ-punct">]</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;south&quot;</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-str">&quot;circle.south-east&quot;</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>South East<span class="typ-punct">]</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;north-west&quot;</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-str">&quot;circle.south-west&quot;</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>South West<span class="typ-punct">]</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;north-east&quot;</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<h2 id="path"><a class="header" href="#path">Path</a></h2>
+<p>A path anchor refers to a point along the path of an element. They can be given as either a <span class='typst type type-num'><a href="custom-types.html#number">number</a></span> for an absolute distance along the path, or a <span class='typst type type-num'><a href="https://typst.app/docs/reference/layout/ratio/">ratio</a></span> for a relative distance along the path.</p>
+<p>Path anchors also specify three anchors "start", "mid" and "end".</p>
+<pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">10</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;line&quot;</span><span class="typ-punct">)</span>
+
+<span class="typ-func">set-style</span><span class="typ-punct">(</span>content<span class="typ-punct">:</span> <span class="typ-punct">(</span>frame<span class="typ-punct">:</span> <span class="typ-str">&quot;rect&quot;</span><span class="typ-punct">,</span> stroke<span class="typ-punct">:</span> <span class="typ-key">none</span><span class="typ-punct">,</span> fill<span class="typ-punct">:</span> white<span class="typ-punct">,</span> padding<span class="typ-punct">:</span> <span class="typ-num">.1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-str">&quot;line.start&quot;</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>0%, 0, &quot;start&quot;<span class="typ-punct">]</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;east&quot;</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-str">&quot;line.mid&quot;</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>50%, &quot;mid&quot;<span class="typ-punct">]</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-str">&quot;line.end&quot;</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>100%, &quot;end&quot;<span class="typ-punct">]</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;west&quot;</span><span class="typ-punct">)</span>
+
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-punct">(</span>name<span class="typ-punct">:</span> <span class="typ-str">&quot;line&quot;</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-num">75%</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>75%<span class="typ-punct">]</span><span class="typ-punct">)</span>
+<span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-punct">(</span>name<span class="typ-punct">:</span> <span class="typ-str">&quot;line&quot;</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-num">50pt</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">[</span>50pt<span class="typ-punct">]</span><span class="typ-punct">)</span>
+</code></pre>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../basics/coordinate-systems.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../basics/marks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../basics/coordinate-systems.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../basics/marks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

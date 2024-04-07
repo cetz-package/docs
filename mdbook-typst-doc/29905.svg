@@ -1,0 +1,43 @@
+<svg class="typst-doc" viewBox="0 0 595.2764999999999 113.386" width="595.2764999999999pt" height="113.386pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g transform="translate(0 0)">
+            <path class="typst-shape" fill="#fffdf2" d="M 0 0 L 0 113.386 L 595.2765 113.386 L 595.2765 0 Z "/>
+        </g>
+        <g transform="translate(255.11849999999998 28.3465)">
+            <g class="typst-group">
+                <g>
+                    <g transform="translate(0 0)">
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="0.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 56.693 C 0 56.693 0 0 0 0 "/>
+                    </g>
+                    <g transform="translate(28.3465 0)">
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="0.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 56.693 C 0 56.693 0 0 0 0 "/>
+                    </g>
+                    <g transform="translate(56.693 0)">
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="0.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 56.693 C 0 56.693 0 0 0 0 "/>
+                    </g>
+                    <g transform="translate(85.0395 0)">
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="0.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 56.693 C 0 56.693 0 0 0 0 "/>
+                    </g>
+                    <g transform="translate(0 56.693)">
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="0.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0 C 0 0 85.0395 0 85.0395 0 "/>
+                    </g>
+                    <g transform="translate(0 28.3465)">
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="0.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0 C 0 0 85.0395 0 85.0395 0 "/>
+                    </g>
+                    <g transform="translate(0 0)">
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="0.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0 C 0 0 85.0395 0 85.0395 0 "/>
+                    </g>
+                    <g transform="translate(0 0)">
+                        <path class="typst-shape" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 56.693 C 0 56.693 85.0395 0 85.0395 0 "/>
+                    </g>
+                    <g transform="translate(7.075714100534305 51.97585726631046)">
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0 C 0 0 77.96378 4.7171426 77.96378 4.7171426 "/>
+                    </g>
+                    <g transform="translate(24.882044030148297 51.17422499859341)">
+                        <path class="typst-shape" fill="#ff4136" d="M 2 0 C 3.103568 0 4 0.896432 4 2 C 4 2 4 2 4 2 C 4 3.103568 3.103568 4 2 4 C 2 4 2 4 2 4 C 0.896432 4 0 3.103568 0 2 C 0 2 0 2 0 2 C 0 0.896432 0.896432 0 2 0 C 2 0 2 0 2 0 Z "/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

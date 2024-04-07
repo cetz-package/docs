@@ -1,0 +1,22 @@
+<svg class="typst-doc" viewBox="0 0 595.2764999999999 116.22065" width="595.2764999999999pt" height="116.22065pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g transform="translate(0 0)">
+            <path class="typst-shape" fill="#fffdf2" d="M 0 0 L 0 116.22065 L 595.2765 116.22065 L 595.2765 0 Z "/>
+        </g>
+        <g transform="translate(253.70117499999998 28.3465)">
+            <g class="typst-group">
+                <g>
+                    <g transform="translate(2.83465 0)">
+                        <path class="typst-shape" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 56.693 C 0 56.693 85.0395 0 85.0395 0 "/>
+                    </g>
+                    <g transform="translate(0 53.858349999999994)">
+                        <path class="typst-shape" fill="#000000" stroke="#000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 2.83465 0 C 4.3987646 0 5.6693 1.2705355 5.6693 2.83465 C 5.6693 2.83465 5.6693 2.83465 5.6693 2.83465 C 5.6693 4.3987646 4.3987646 5.6693 2.83465 5.6693 C 2.83465 5.6693 2.83465 5.6693 2.83465 5.6693 C 1.2705355 5.6693 0 4.3987646 0 2.83465 C 0 2.83465 0 2.83465 0 2.83465 C 0 1.2705355 1.2705355 0 2.83465 0 C 2.83465 0 2.83465 0 2.83465 0 Z "/>
+                    </g>
+                    <g transform="translate(19.34464956791338 45.68633362139108)">
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0 C 0 0 7.8619046 11.792857 7.8619046 11.792857 "/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

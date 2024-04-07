@@ -50,7 +50,7 @@
     pointer-events: none;
 }
 
-h1 .type {
+h1 .type,h2 .type {
     font-size: inherit !important
 }
 
@@ -177,4 +177,12 @@ h1 .type>a {
 
 .typ-pol {
     color: #8b41b1;
+}
+
+.example>p, .example>pre {
+    margin: 0
+}
+
+.render {
+    align-items: center;
 }

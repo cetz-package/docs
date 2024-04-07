@@ -1,0 +1,22 @@
+<svg class="typst-doc" viewBox="0 0 595.2764999999999 113.386" width="595.2764999999999pt" height="113.386pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g transform="translate(0 0)">
+            <path class="typst-shape" fill="#fffdf2" d="M 0 0 L 0 113.386 L 595.2765 113.386 L 595.2765 0 Z "/>
+        </g>
+        <g transform="translate(269.29175 28.3465)">
+            <g class="typst-group">
+                <g>
+                    <g transform="translate(0 0)">
+                        <path class="typst-shape" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0 C 0 0 56.693 0 56.693 0 C 56.693 0 56.693 56.693 56.693 56.693 C 56.693 56.693 0 56.693 0 56.693 C 0 56.693 0 0 0 0 C 0 0 0 0 0 0 Z "/>
+                    </g>
+                    <g transform="translate(0 0)">
+                        <path class="typst-shape" fill="#ff4136" stroke="#0074d9" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 28.3465 0 C 43.987644 0 56.693 12.705355 56.693 28.3465 C 56.693 28.3465 56.693 28.3465 56.693 28.3465 C 56.693 43.987644 43.987644 56.693 28.3465 56.693 C 28.3465 56.693 28.3465 56.693 28.3465 56.693 C 12.705355 56.693 0 43.987644 0 28.3465 C 0 28.3465 0 28.3465 0 28.3465 C 0 12.705355 12.705355 0 28.3465 0 C 28.3465 0 28.3465 0 28.3465 0 Z "/>
+                    </g>
+                    <g transform="translate(28.3465 0)">
+                        <path class="typst-shape" fill="#ff4136" stroke="#2ecc40" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 28.3465 C 0 28.3465 28.3465 0 28.3465 0 "/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

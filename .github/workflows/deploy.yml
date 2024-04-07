@@ -29,6 +29,8 @@ jobs:
         with:
           mdbook-version: "0.4.37"
       - uses: typst-community/setup-typst@v3
+        with:
+          cache-dependency-path: dependencies.typ
       - name: Build Book
         run: |
           chmod +x ./mdbook-typst-doc

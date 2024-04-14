@@ -218,7 +218,7 @@
 </div>
 </div>
 <div class="example">
-<p><img src="/mdbook-typst-doc/cc8f1.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/cc8f1.svg" alt="" /></p>
 <pre><code><span class="typ-comment">// Draws a red circle with a blue border</span>
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> fill<span class="typ-punct">:</span> red<span class="typ-punct">,</span> stroke<span class="typ-punct">:</span> blue<span class="typ-punct">)</span>
 
@@ -228,7 +228,7 @@
 </div>
 <p>Instead of having to specify the same styling for each time you want to draw an element, you can use the <code>set-style()</code> function to change the style for all elements after it, like a Typst <code>set</code> rule. You can still pass styling to a draw function to override what has been set with <code>set-style()</code>. You can also use the <code>fill()</code> and <code>stroke()</code> functions as a shorthand to set the fill and stroke respectively.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/0cd8f.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/0cd8f.svg" alt="" /></p>
 <pre><code><span class="typ-comment">// Draws an empty square with a black border</span>
 <span class="typ-func">rect</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 
@@ -242,7 +242,7 @@
 </div>
 <p>When using a dictionary for a style, it is important to onte that they update each other instead of overriding the entire option like a non-dictionary value would. For example, if the stroke is set to <code>(paint: red, thickness: 5pt)</code> and you pass <code>(paint: blue)</code>, the stroke would become <code>(paint: blue, thickness: 5pt)</code>.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/350d1.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/350d1.svg" alt="" /></p>
 <pre><code><span class="typ-comment">// Sets the stroke to red with a thickness of 5pt</span>
 <span class="typ-func">set-style</span><span class="typ-punct">(</span>stroke<span class="typ-punct">:</span> <span class="typ-punct">(</span>paint<span class="typ-punct">:</span> red<span class="typ-punct">,</span> thickness<span class="typ-punct">:</span> <span class="typ-num">5pt</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 
@@ -258,7 +258,7 @@
 </div>
 <p>You can also specify styling for each type of element. Note that dictionary values will still update with its global value, the full hierarchy is <code>function &gt; element type &gt; global</code>. When the value of a style is <span class='typst type type-keyword'><a href="">auto</a></span>, it will become exactly its parent style.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/e39d9.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/e39d9.svg" alt="" /></p>
 <pre><code><span class="typ-func">set-style</span><span class="typ-punct">(</span>
   <span class="typ-comment">// Global fill and stroke</span>
   fill<span class="typ-punct">:</span> green<span class="typ-punct">,</span>

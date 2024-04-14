@@ -221,7 +221,7 @@
 </div>
 <p>The implicit form can be given as an array of two or three <span class='typst type type-num'><a href="custom-types.html#number">number</a></span>s, as in <code>(x, y)</code> or <code>(x, y, z)</code></p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/f3b42.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/f3b42.svg" alt="" /></p>
 <pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span>x<span class="typ-punct">:</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span>y<span class="typ-punct">:</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span>z<span class="typ-punct">:</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
@@ -235,7 +235,7 @@
 <h2 id="previous"><a class="header" href="#previous">Previous</a></h2>
 <p>Use this to reference the position of the previous coordinate passed to a draw function. It takes the form of an empty array <code>()</code> and the previous position initially will be <code>(0, 0, 0)</code>. This will never reference the position of a coordinate used to define another coordinate.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/94840.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/94840.svg" alt="" /></p>
 <pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 
 <span class="typ-comment">// Draws a circle at (1,1)</span>
@@ -281,7 +281,7 @@
 </div>
 <p>In the example below, the red circle is placed one unit to the right of the blue circle. If the blue circle was to be moved a different position, the red circle will move with the blue circle to stay one unit to the right.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/c8c1e.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/c8c1e.svg" alt="" /></p>
 <pre><code><span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> stroke<span class="typ-punct">:</span> blue<span class="typ-punct">)</span>
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span>rel<span class="typ-punct">:</span> <span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span><span class="typ-punct">,</span> stroke<span class="typ-punct">:</span> red<span class="typ-punct">)</span>
 </code></pre>
@@ -313,13 +313,13 @@
 </div>
 </div>
 <div class="example">
-<p><img src="/mdbook-typst-doc/4e475.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/4e475.svg" alt="" /></p>
 <pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span>angle<span class="typ-punct">:</span> <span class="typ-num">30deg</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 </code></pre>
 </div>
 <p>The implicit form is an array of the angle then the radius <code>(angle, radius)</code> or <code>(angle, (x, y))</code>.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/5ee92.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/5ee92.svg" alt="" /></p>
 <pre><code><span class="typ-func">line</span><span class="typ-punct">(</span>
   <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span>
   <span class="typ-punct">(</span><span class="typ-num">30deg</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span>
@@ -345,7 +345,7 @@
 </div>
 </div>
 <div class="example">
-<p><img src="/mdbook-typst-doc/b0ad4.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/b0ad4.svg" alt="" /></p>
 <pre><code><span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">90deg</span><span class="typ-punct">,</span> <span class="typ-num">3</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">0</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;content&quot;</span><span class="typ-punct">)</span>
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">210deg</span><span class="typ-punct">,</span> <span class="typ-num">3</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">0</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;structure&quot;</span><span class="typ-punct">)</span>
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">30deg</span><span class="typ-punct">,</span> <span class="typ-num">3</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">0</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;form&quot;</span><span class="typ-punct">)</span>
@@ -421,7 +421,7 @@
 </div>
 </div>
 <div class="example">
-<p><img src="/mdbook-typst-doc/84f05.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/84f05.svg" alt="" /></p>
 <pre><code><span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">)</span>
 <span class="typ-comment">// Anchor at 30 degree</span>
 <span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-punct">(</span>name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-num">30deg</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-func">box</span><span class="typ-punct">(</span>fill<span class="typ-punct">:</span> white<span class="typ-punct">,</span> <span class="typ-math-delim">$</span> 30 <span class="typ-pol">degree</span> <span class="typ-math-delim">$</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
@@ -433,7 +433,7 @@
 </div>
 <p>You can also use implicit syntax of a dot separated string in the form <code>"name.anchor"</code> for all anchors.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/3543e.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/3543e.svg" alt="" /></p>
 <pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">4</span><span class="typ-punct">,</span> <span class="typ-num">3</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;line&quot;</span><span class="typ-punct">)</span>
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-str">&quot;line.75%&quot;</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">)</span>
 <span class="typ-func">rect</span><span class="typ-punct">(</span><span class="typ-str">&quot;line.start&quot;</span><span class="typ-punct">,</span> <span class="typ-str">&quot;circle.east&quot;</span><span class="typ-punct">)</span>
@@ -476,7 +476,7 @@
 </div>
 <p>A special algorithm is needed in order to compute the tangent for a given shape. Currently it does this by assuming the distance between the center and top anchor (See <a href="anchors.html">Anchors</a>) is the radius of a circle.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/ce9b7.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/ce9b7.svg" alt="" /></p>
 <pre><code><span class="typ-func">grid</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">,</span> help-lines<span class="typ-punct">:</span> <span class="typ-key">true</span><span class="typ-punct">)</span>
 
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;a&quot;</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">2pt</span><span class="typ-punct">)</span>
@@ -523,7 +523,7 @@
 </div>
 <p>You can use the implicit syntax of <code>(horizontal, "-|", vertical)</code> or <code>(vertical, "|-", horizontal)</code>.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/41100.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/41100.svg" alt="" /></p>
 <pre><code><span class="typ-func">set-style</span><span class="typ-punct">(</span>content<span class="typ-punct">:</span> <span class="typ-punct">(</span>padding<span class="typ-punct">:</span> <span class="typ-num">.05</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 <span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">30deg</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-math-delim">$</span> p<span class="typ-math-op">_</span>1 <span class="typ-math-delim">$</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;p1&quot;</span><span class="typ-punct">)</span>
 <span class="typ-func">content</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">75deg</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-math-delim">$</span> p<span class="typ-math-op">_</span>2 <span class="typ-math-delim">$</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;p2&quot;</span><span class="typ-punct">)</span>
@@ -591,7 +591,7 @@
 </div>
 <p>Can be used implicitly as an array in the form <code>(a, number, b)</code> or <code>(a, number, angle, b)</code>.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/f5dba.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/f5dba.svg" alt="" /></p>
 <pre><code><span class="typ-func">grid</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">3</span><span class="typ-punct">)</span><span class="typ-punct">,</span> help-lines<span class="typ-punct">:</span> <span class="typ-key">true</span><span class="typ-punct">)</span>
 
 <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">2</span><span class="typ-punct">,</span><span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;a&quot;</span><span class="typ-punct">)</span>
@@ -609,7 +609,7 @@
 </div>
 <hr />
 <div class="example">
-<p><img src="/mdbook-typst-doc/29b97.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/29b97.svg" alt="" /></p>
 <pre><code><span class="typ-func">grid</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">3</span><span class="typ-punct">)</span><span class="typ-punct">,</span> help-lines<span class="typ-punct">:</span> <span class="typ-key">true</span><span class="typ-punct">)</span>
 <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">10deg</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
@@ -620,7 +620,7 @@
 </div>
 <hr />
 <div class="example">
-<p><img src="/mdbook-typst-doc/6c4d4.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/6c4d4.svg" alt="" /></p>
 <pre><code><span class="typ-func">grid</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">4</span><span class="typ-punct">,</span><span class="typ-num">4</span><span class="typ-punct">)</span><span class="typ-punct">,</span> help-lines<span class="typ-punct">:</span> <span class="typ-key">true</span><span class="typ-punct">)</span>
 
 <span class="typ-func">fill</span><span class="typ-punct">(</span>black<span class="typ-punct">)</span>
@@ -633,7 +633,7 @@
 </div>
 <p>You can even chain them together!</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/29905.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/29905.svg" alt="" /></p>
 <pre><code><span class="typ-func">grid</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span> <span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">,</span> help-lines<span class="typ-punct">:</span> <span class="typ-key">true</span><span class="typ-punct">)</span>
 <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 <span class="typ-func">stroke</span><span class="typ-punct">(</span>red<span class="typ-punct">)</span>
@@ -652,7 +652,7 @@
 </div>
 <hr />
 <div class="example">
-<p><img src="/mdbook-typst-doc/7d201.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/7d201.svg" alt="" /></p>
 <pre><code><span class="typ-func">grid</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span> <span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">,</span> help-lines<span class="typ-punct">:</span> <span class="typ-key">true</span><span class="typ-punct">)</span>
 <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 <span class="typ-key">for</span> <span class="typ-punct">(</span>l<span class="typ-punct">,</span> c<span class="typ-punct">)</span> <span class="typ-key">in</span> <span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0cm</span><span class="typ-punct">,</span> <span class="typ-str">&quot;0cm&quot;</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1cm</span><span class="typ-punct">,</span> <span class="typ-str">&quot;1cm&quot;</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">15mm</span><span class="typ-punct">,</span> <span class="typ-str">&quot;15mm&quot;</span><span class="typ-punct">)</span><span class="typ-punct">)</span> <span class="typ-punct">{</span>
@@ -662,7 +662,7 @@
 </div>
 <p>Interpolation coordinates can be used to get the <em>normal</em> on a tangent:</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/1afd3.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/1afd3.svg" alt="" /></p>
 <pre><code><span class="typ-key">let</span> <span class="typ-punct">(</span>a<span class="typ-punct">,</span> b<span class="typ-punct">)</span> <span class="typ-op">=</span> <span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">3</span><span class="typ-punct">,</span><span class="typ-num">2</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
 <span class="typ-func">line</span><span class="typ-punct">(</span>a<span class="typ-punct">,</span> b<span class="typ-punct">)</span>
 <span class="typ-comment">// Get normal for tangent from a to () with distance .5, at a</span>
@@ -674,7 +674,7 @@
 <p>An array where the first element is a function and the rest are coordinates will cause the function to be called with the resolved coordinates. The resolved coordinates will be given as a <span class='typst type type-obj'><a href="custom-types.html#vector">vector</a></span> that represents an xyz point in space.</p>
 <p>The example below shows how to use this system to create an offset from an anchor, however this could easily be replaced with a <a href="#relative">relative coordinate</a> with the <code>to</code> argument set.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/8973f.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/8973f.svg" alt="" /></p>
 <pre><code><span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;c&quot;</span><span class="typ-punct">)</span>
 <span class="typ-func">fill</span><span class="typ-punct">(</span>red<span class="typ-punct">)</span>
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span>v <span class="typ-op">=&gt;</span> cetz<span class="typ-punct">.</span>vector<span class="typ-punct">.</span><span class="typ-func">add</span><span class="typ-punct">(</span>v<span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-str">&quot;c.west&quot;</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">0.3</span><span class="typ-punct">)</span>

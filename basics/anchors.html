@@ -183,7 +183,7 @@
 <p>You can refer to a position relative to an element by using its anchors. Anchors come in three different variations but can all be used in two ways.</p>
 <p>The first is by using the <code>anchor</code> argument on an element. When given, the element will be translated such that the given anchor will be wher the given position is. This is supported by all elements that have the <code>anchor</code> argument.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/51d3a.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/51d3a.svg" alt="" /></p>
 <pre><code><span class="typ-comment">// Draw a circle and place its &quot;west&quot; anchor at the origin.</span>
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> anchor<span class="typ-punct">:</span> <span class="typ-str">&quot;west&quot;</span><span class="typ-punct">)</span>
 
@@ -195,7 +195,7 @@
 </div>
 <p>The second is by using <a href="coordinate-systems.html#anchor">anchor coordinates</a>. You must first give the element a name by passing a string to its <code>name</code> argument, you can then use its anchors to place other elements. Note that this is only available for elements that have a <code>name</code> argument.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/43922.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/43922.svg" alt="" /></p>
 <pre><code><span class="typ-comment">// Name the circle</span>
 <span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span><span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">)</span>
 
@@ -213,7 +213,7 @@
 <p>They are given as angles where <code>0deg</code> is towards the right and <code>90deg</code> is up.</p>
 <p>Border anchors also specify named compass directions such as "north", "north-east", etc. Border anchors aslo specify a "center" named anchor which is where the ray cast originates from.</p>
 <div class="example">
-<p><img src="/mdbook-typst-doc/b41a8.svg" alt="" /></p>
+<p><img src="/docs/mdbook-typst-doc/b41a8.svg" alt="" /></p>
 <pre><code><span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> name<span class="typ-punct">:</span> <span class="typ-str">&quot;circle&quot;</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">1</span><span class="typ-punct">)</span>
 
 <span class="typ-func">set-style</span><span class="typ-punct">(</span>content<span class="typ-punct">:</span> <span class="typ-punct">(</span>frame<span class="typ-punct">:</span> <span class="typ-str">&quot;rect&quot;</span><span class="typ-punct">,</span> stroke<span class="typ-punct">:</span> <span class="typ-key">none</span><span class="typ-punct">,</span> fill<span class="typ-punct">:</span> white<span class="typ-punct">,</span> padding<span class="typ-punct">:</span> <span class="typ-num">.1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>

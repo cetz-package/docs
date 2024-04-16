@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A Picture for Karl&#x27;s New Students - CeTZ - Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Documentation for the Typst drawing package CeTZ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../typst-doc.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../basics/basics.html"><strong aria-hidden="true">3.</strong> Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basics/custom-types.html"><strong aria-hidden="true">3.1.</strong> Custom Types</a></li><li class="chapter-item expanded "><a href="../basics/canvas.html"><strong aria-hidden="true">3.2.</strong> The Canvas</a></li><li class="chapter-item expanded "><a href="../basics/styling.html"><strong aria-hidden="true">3.3.</strong> Styling</a></li><li class="chapter-item expanded "><a href="../basics/coordinate-systems.html"><strong aria-hidden="true">3.4.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../basics/anchors.html"><strong aria-hidden="true">3.5.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="../basics/marks.html"><strong aria-hidden="true">3.6.</strong> Marks</a></li></ol></li><li class="chapter-item expanded "><a href="../libraries/libraries.html"><strong aria-hidden="true">4.</strong> Libraries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../libraries/tree.html"><strong aria-hidden="true">4.1.</strong> Tree</a></li><li class="chapter-item expanded "><a href="../libraries/plot.html"><strong aria-hidden="true">4.2.</strong> Plot</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Chart</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> Palette</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.5.</strong> Angle</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.6.</strong> Decorations</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Tutorials</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tutorials/karl.html" class="active"><strong aria-hidden="true">5.1.</strong> A Picture for Karl's New Students</a></li></ol></li><li class="chapter-item expanded "><a href="../internals/internals.html"><strong aria-hidden="true">6.</strong> Internals</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> Context</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Elements</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Custom Elements</div></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CeTZ - Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cetz-package/docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="a-picture-for-karls-new-students"><a class="header" href="#a-picture-for-karls-new-students">A Picture for Karl's New Students</a></h1>
+<p>This tutorial is intended for new users of CeTZ. It does not give an exhaustive account of all the features of CeTZ, just of those you are likely to use right away. This tutorial also acts as a parallel to Ti<em>k</em>Z's tutorial <a href="https://tikz.dev/tutorial">A Picture for Karl's Students</a>.</p>
+<p>Karl is a math and chemistry high-school teacher. He used to create the graphics in his worksheets and exams using the Ti<em>k</em>Z package with \(\LaTeX\). While the results were acceptable, Karl, for his own reasons, has started using Typst instead. He looks through the provided packages in <a href="https://typst.app/universe/">Typst: Universe</a> and finds CeTZ, which is supposed to stand for "CeTZ, ein Typst Zeichenpaket" and appears appropriate.</p>
+<h2 id="problem-statement"><a class="header" href="#problem-statement">Problem Statement</a></h2>
+<p>Karl wants to put a graphic on the next worksheet for his students. He is currently teaching his students about sine and cosine. What he would like to have is something that looks like this (ideally):</p>
+<pre><code>Either the example gets rendered using a block or we pre-render it I'm not sure yet.
+</code></pre>
+<h2 id="setting-up-the-enironment"><a class="header" href="#setting-up-the-enironment">Setting up the Enironment</a></h2>
+<p>In CeTZ, to draw a picture, two imports and a function call is all you need. Karl sets up his file as follows:</p>
+<pre><code><span class="typ-key">#</span><span class="typ-key">set</span> <span class="typ-func">page</span><span class="typ-punct">(</span>width<span class="typ-punct">:</span> <span class="typ-key">auto</span><span class="typ-punct">,</span> height<span class="typ-punct">:</span> <span class="typ-key">auto</span><span class="typ-punct">)</span>
+<span class="typ-key">#</span><span class="typ-key">import</span> <span class="typ-str">&quot;@preview/cetz:0.2.2&quot;</span>
+
+We are working on
+<span class="typ-pol">#</span><span class="typ-pol">cetz</span><span class="typ-punct">.</span><span class="typ-func">canvas</span><span class="typ-punct">(</span><span class="typ-punct">{</span>
+  <span class="typ-key">import</span> draw<span class="typ-punct">:</span> <span class="typ-op">*</span>
+  <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+  <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-punct">}</span><span class="typ-punct">)</span>
+</code></pre>
+<p>When compiled via the Typst web app or the Typst command line interface, the resulting output will contain something that looks like this:</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/0653b.svg" alt="" /></p>
+<pre><code>We are working on
+<span class="typ-pol">#</span><span class="typ-pol">cetz</span><span class="typ-punct">.</span><span class="typ-func">canvas</span><span class="typ-punct">(</span><span class="typ-punct">{</span>
+  <span class="typ-key">import</span> cetz<span class="typ-punct">.</span>draw<span class="typ-punct">:</span> <span class="typ-op">*</span>
+  <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+  <span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-punct">}</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>Admittedly, not quite the whole picture, yet, but we do have the axes established. Well, not quite, but we have the lines that make up the axes drawn. Karl suddenly has a sinking feeling that the picture is still some way off.</p>
+<p>Let's have a more detailed look at the code. First, the package <code>cetz</code> is imported. The <code>canvas</code> function in the <code>cetz</code> module is then called and a pair of curly braces are placed as the function's first (and only) positional argument. The braces create a scope or body, in which more functions can be called, but first must be imported from the <code>draw</code> module.</p>
+<p>Inside the body there are two <code>line</code> functions. They are draw functions that draw straight lines between given positions. The first <code>line</code> function is given the parameters <code>(-1.5, 0), (1.5, 0)</code>, which refer to a point at position \((-1.5, 0)\) and \((1.5, 0)\). Here, the positions are specified within a special coordinate system in which, initially, one unit is 1cm.</p>
+<p>Karl is quite pleased to note that the environment automatically reserves enough space to encompass the picture.</p>
+<h2 id="line-construction"><a class="header" href="#line-construction">Line Construction</a></h2>
+<p>The basic building block of all pictures in CeTZ are draw functions. A draw function is a function that can be called inside the canvas body in order to create the graphic, such as <code>line</code>, <code>bezier</code>, <code>rect</code> and many more (not all draw functions <em>acutally</em> draw something, like <code>set-style</code>, but still effect the outcome of the picture).</p>
+<p>In order to draw a path of straight lines, the <code>line</code> draw function can be used. You specify the coordinates of the start position by passing an array with two numbers (a <span class='typst type type-obj'><a href="custom-types.html#coordinate">coordinate</a></span> type) to the first parameter of <code>line</code>. The second coordinate must be given as the second parameter of the function otherwise it will panic. Subsequent coordinates can be passed to the function to draw additional lines between the previous and next coordinates.</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/3bdaf.svg" alt="" /></p>
+<pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+Note that the `canvas` function and import statments have been omitted from the code as they are boiler plate and don't always need to be shown. They are very much still required in order to produce the picture, so just remember they are there okay.
+<h2 id="curve-construction"><a class="header" href="#curve-construction">Curve Construction</a></h2>
+<p>The next think Karl wants to do is to draw the circle. For this, straight lines obviously will not do. Instead, we need some way to draw curves. For this, CeTZ provides several other draw functions, the most useful here would be the <code>bezier</code> function. As the name suggests, it can draw a bezier curve when a start and end coordinate is given, as well as one or two control points.</p>
+<p>Here is an example (the control points have been added for clarity):</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/4a29f.svg" alt="" /></p>
+<pre><code><span class="typ-comment">// start and end</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">2pt</span><span class="typ-punct">,</span> fill<span class="typ-punct">:</span> gray<span class="typ-punct">)</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">2</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">2pt</span><span class="typ-punct">,</span> fill<span class="typ-punct">:</span> gray<span class="typ-punct">)</span>
+<span class="typ-comment">// control points</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">2pt</span><span class="typ-punct">,</span> fill<span class="typ-punct">:</span> gray<span class="typ-punct">)</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">2</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">2pt</span><span class="typ-punct">,</span> fill<span class="typ-punct">:</span> gray<span class="typ-punct">)</span>
+
+<span class="typ-func">bezier</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">2</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">2</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>So, Karl can now add the first half circle to the picture:</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/e5344.svg" alt="" /></p>
+<pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+
+<span class="typ-func">bezier</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">0.555</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">0.555</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">bezier</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0.555</span><span class="typ-punct">,</span> <span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-num">0.555</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>Karl is happy with the result, but finds specifying circles in this way to be extremely awkward. Fortunately, there is a much simpler way.</p>
+<h2 id="circle-construction"><a class="header" href="#circle-construction">Circle Construction</a></h2>
+<p>In order to draw a circle, the <code>circle</code> draw function can be used:</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/33202.svg" alt="" /></p>
+<pre><code><span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-num">10pt</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>You can also draw an ellipse with this draw function by passing an array of two numbers to the <code>radius</code> argument:</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/a4b4b.svg" alt="" /></p>
+<pre><code><span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> radius<span class="typ-punct">:</span> <span class="typ-punct">(</span><span class="typ-num">20pt</span><span class="typ-punct">,</span> <span class="typ-num">10pt</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>To draw an ellipse whose axes are not horizontal and vertical, but point in an arbitrary direction you can use transformations, which are explained later.</p>
+<p>So, returning to Karl's problem, he can write <code>circle((0, 0))</code> to draw the circle as, by default, the <code>radius</code> argument is <code>1</code>:</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/046f0.svg" alt="" /></p>
+<pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>At this point, Karl is a bit alarmed that the circle is so small when he wants the final picture to be much bigger. He is pleased to learn that CeTZ has transformation draw functions and scaling everything by a factor of three is very easy. But let us leave the size as it is for the moment ot save some space.</p>
+<h2 id="rectangle-construction"><a class="header" href="#rectangle-construction">Rectangle Construction</a></h2>
+<p>The next things we would like to haveis the grid in the background. There are several ways to produce it. For example, one might draw lots of rectangles. To do so, the <code>rect</code> draw function can be used. Two coordinates should be passed as arguments, they specify the corners of the rectangle:</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/4618c.svg" alt="" /></p>
+<pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+
+<span class="typ-func">rect</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0.5</span><span class="typ-punct">,</span> <span class="typ-num">0.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">rect</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">0.5</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">0.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>While this may be nice in other situations, this is not really leading anywhere with Karl's problem: First, we would need an awful lot of these rectangles and then there is the border that is not "closed".</p>
+<p>So, Karl is about to resort to simply drawing four vertical and four horizontal lines using the nice <code>line</code> draw function, when he learns that there is a <code>grid</code> draw function.</p>
+<h2 id="grid-construction"><a class="header" href="#grid-construction">Grid Construction</a></h2>
+<p>The <code>grid</code> draw function adds a grid to the picture. It will add lines making up a grid that fills the rectangle specified by two coordinates passed to it.</p>
+<p>For Karl, the following code could be used:</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/72112.svg" alt="" /></p>
+<pre><code><span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+
+<span class="typ-func">grid</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> step<span class="typ-punct">:</span> <span class="typ-num">0.5</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+<p>Having another look at his desired picture, karl notices that it would be nice for the grid to be more subdued. To subdue the grid, Karl adds more named arguments to the <code>grid</code> draw function. First, he uses the color <code>gray</code> for the grid lines. Second, he reduces the line width to <code>0.2pt</code> (Ti<em>k</em>Z's <code>very thin</code>). Finally, he swaps the ordering of the commands so that the grid is drawn first and everything else on top.</p>
+<div class="example">
+<p><img src="/docs/mdbook-typst-doc/70d2b.svg" alt="" /></p>
+<pre><code><span class="typ-func">grid</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> step<span class="typ-punct">:</span> <span class="typ-num">0.5</span><span class="typ-punct">,</span> stroke<span class="typ-punct">:</span> gray <span class="typ-op">+</span> <span class="typ-num">0.2pt</span><span class="typ-punct">)</span>
+<span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">1.5</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">line</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-op">-</span><span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">,</span> <span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">1.5</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+<span class="typ-func">circle</span><span class="typ-punct">(</span><span class="typ-punct">(</span><span class="typ-num">0</span><span class="typ-punct">,</span> <span class="typ-num">0</span><span class="typ-punct">)</span><span class="typ-punct">)</span>
+</code></pre>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../libraries/plot.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../internals/internals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../libraries/plot.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../internals/internals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

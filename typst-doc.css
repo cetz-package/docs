@@ -50,7 +50,7 @@
     pointer-events: none;
 }
 
-h1 .type,h2 .type {
+h1 .type, h2 .type, h3 .type {
     font-size: inherit !important
 }
 

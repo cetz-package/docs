@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: robinraju/release-downloader@v1.9
         with:
-          repository: "fenjalien/mdbook-typst-doc"
+          repository: fenjalien/mdbook-typst-doc
           latest: true
           fileName: mdbook-typst-doc
       - uses: peaceiris/actions-mdbook@v1

@@ -17,7 +17,7 @@ In CeTZ, to draw a picture, two imports and a function call is all you need. Kar
 
 We are working on
 #cetz.canvas({
-  import draw: *
+  import cetz.draw: *
   line((-1.5, 0), (1.5, 0))
   line((0, -1.5), (0, 1.5))
 })

@@ -4,7 +4,7 @@ This tutorial is intended for new users of CeTZ. It does not give an exhaustive 
 Karl is a math and chemistry high-school teacher. He used to create the graphics in his worksheets and exams using the Ti*k*Z package with \\(\LaTeX\\). While the results were acceptable, Karl, for his own reasons, has started using Typst instead. He looks through the provided packages in [Typst: Universe](https://typst.app/universe/) and finds CeTZ, which is supposed to stand for "CeTZ, ein Typst Zeichenpaket" and appears appropriate.
 
 ## Problem Statement
-Karl wants to put a graphic on the next worksheet for his students. He is currently teaching his students about sine and cosine. What he would like to have is something that looks like this (ideally):
+Karl wants to put a graphic on the next worksheet for his students. He is currently teaching his students about sine and cosine. He already has the graphic drawn with Ti*k*Z and would like to keep it as close to it as possible:
 ```
 Either the example gets rendered using a block or we pre-render it I'm not sure yet.
 ```
@@ -140,4 +140,74 @@ grid((-1.5, -1.5), (1.5, 1.5), step: 0.5, stroke: gray + 0.2pt)
 line((-1.5, 0), (1.5, 0))
 line((0, -1.5), (0, 1.5))
 circle((0, 0))
+```
+
+## Adding a Touch of Style
+
+Karl notices that the thickness of the circle and axes paths are much greater than the grid's thickness. He learns that CeTZ's default stroke thickness is actually `1pt` and not Ti*k*Z's `0.4pt`. Karl decides that he would like to use the thinner lines to keep this new picture as close to the original as possible.
+
+We can use the `set-style` draw function to apply styling to all subsequent draw functions, similar to how Typst's `set` and `show` rules work. To set the stroke's thickness he uses the named argument `stroke: 0.4pt`:
+
+```typc,example
+set-style(stroke: 0.4pt)
+grid((-1.5, -1.5), (1.5, 1.5), step: 0.5, stroke: gray + 0.2pt)
+line((-1.5, 0), (1.5, 0))
+line((0, -1.5), (0, 1.5))
+circle((0, 0))
+```
+
+Karl can also move the grid's styling into the same `set-style` function by passing it as a dictionary to the `grid` named argument:
+```typc
+set-style(
+  stroke: 0.4pt,
+  grid: (
+    stroke: gray + 0.2pt,
+    step: 0.5
+  )
+)
+grid((-1.5, -1.5), (1.5, 1.5))
+line((-1.5, 0), (1.5, 0))
+line((0, -1.5), (0, 1.5))
+circle((0, 0))
+```
+
+## Arc Construction
+
+Our next obstacle is to draw the arc for the angle. For this, the `arc` draw function can be used, which draws part of a circle or ellipse. This function requires arguments to specify the arc. An example would be `arc((0, 0), start: 10deg, stop: 80deg, radius: 10pt)`, which creates an arc starting at \\((0, 0)\\) at an angle of \\(10°\\) to \\(80°\\) with a radius of `10pt`. Karl obviously needs an arc from \\(0°\\) to \\(30°\\). The radius should be something relatively small, perhaps around one third fo the circle's radius.
+
+```typc,example
+set-style(
+  stroke: 0.4pt,
+  grid: (
+    stroke: gray + 0.2pt,
+    step: 0.5
+  )
+)
+grid((-1.5, -1.5), (1.5, 1.5))
+line((-1.5, 0), (1.5, 0))
+line((0, -1.5), (0, 1.5))
+circle((0, 0))
+arc((3mm, 0), start: 0deg, stop: 30deg, radius: 3mm)
+```
+
+Karl thinks this is really a bit small and he cannot continue unless he learns how to do scaling. For this, he can use the `scale` draw function at the start of the canvas body
+```typc,example
+set-style(
+  stroke: 0.4pt,
+  grid: (
+    stroke: gray + 0.2pt,
+    step: 0.5
+  )
+)
+scale(3)
+grid((-1.5, -1.5), (1.5, 1.5))
+line((-1.5, 0), (1.5, 0))
+line((0, -1.5), (0, 1.5))
+circle((0, 0))
+arc((3mm, 0), start: 0deg, stop: 30deg, radius: 3mm)
+```
+
+As for circles, you can specify the radius as an array of two numbers to get an elliptical arc.
+```typc,example
+arc((0, 0), start: 0deg, stop: 315deg, radius: (1.75, 1))
 ```

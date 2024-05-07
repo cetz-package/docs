@@ -1,10 +1,9 @@
 # docs
 
-The new documentation for CeTZ.
-
-Uses [mdbook-typst-doc](https://github.com/fenjalien/mdbook-typst-doc) to provide type styling, parameter definition layout, and typst code compiling and highlighting.
+The new documentation for CeTZ built using [Docusaurus](https://docusaurus.io/).
 
 ## setup
-- Install mdbook
-- Install or download https://github.com/fenjalien/mdbook-typst-doc
+- Install node v20
+- Install dependencies using `npm ci`
+- Run the dev server using `npm run start`
 

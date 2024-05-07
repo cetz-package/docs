@@ -1,0 +1,15 @@
+/* .example>p, .example>pre {
+  margin: 0
+}
+
+p > .typst-doc {
+  align-items: center;
+} */
+
+img {
+  width: 100%
+}
+
+code {
+  border: 0.1rem solid var(--ifm-code-background)
+}

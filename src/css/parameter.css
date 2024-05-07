@@ -1,0 +1,26 @@
+
+.parameter-details,
+.main-details {
+  display: flex;
+  align-items: center;
+  font-family: Cascadia Mono, Courier New, Courier, monospace;
+}
+
+.main-details h4 {
+  margin: 0;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem)
+}
+
+.parameter-details {
+  justify-content: space-between;
+}
+
+.main-details {
+  gap: 0.5rem;
+}
+
+.parameter-description {
+  /* description indent */
+  margin-inline-start: 2rem;
+}
+

@@ -59,7 +59,7 @@ Note that the `canvas` function and import statments have been omitted from the 
 The next think Karl wants to do is to draw the circle. For this, straight lines obviously will not do. Instead, we need some way to draw curves. For this, CeTZ provides several other draw functions, the most useful here would be the `bezier` function. As the name suggests, it can draw a bezier curve when a start and end coordinate is given, as well as one or two control points.
 
 Here is an example (the control points have been added for clarity):
-```typc example
+```typc example {8}
 // start and end
 circle((0, 0), radius: 2pt, fill: gray)
 circle((2, 0), radius: 2pt, fill: gray)
@@ -213,3 +213,87 @@ As for circles, you can specify the radius as an array of two numbers to get an 
 ```typc example
 arc((0, 0), start: 0deg, stop: 315deg, radius: (1.75, 1))
 ```
+
+## Not Really Path Clipping
+In order to save space in this manual, it would be nice to clip Karl's graphics a bit so we can focus on the "interesting" parts. Unfortunately clipping is not currently possible in CeTZ. So instead we can replace the circle with an arc and modify the grid.
+
+```typc example
+set-style(
+  stroke: 0.4pt,
+  grid: (
+    stroke: gray + 0.2pt,
+    step: 0.5
+  )
+)
+scale(3)
+grid((-0.5, -0.5), (1, 1))
+line((-0.5, 0), (1, 0))
+line((0, -0.5), (0, 1))
+arc((0, 1), start: 90deg, delta: -120deg)
+arc((3mm, 0), start: 0deg, stop: 30deg, radius: 3mm)
+```
+
+## Filling and Drawing
+Returning to the picture, Karl now wants the angle to be "filled" with a very light green. For this he uses the `fill` styling parameter. Here is what Karl does:
+```typc example {18-19}
+set-style(
+  stroke: 0.4pt,
+  grid: (
+    stroke: gray + 0.2pt,
+    step: 0.5
+  )
+)
+scale(3)
+grid((-0.5, -0.5), (1, 1))
+line((-0.5, 0), (1, 0))
+line((0, -0.5), (0, 1))
+arc((0, 1), start: 90deg, delta: -120deg)
+arc(
+  (3mm, 0),
+  start: 0deg,
+  stop: 30deg,
+  radius: 3mm,
+  mode: "PIE",
+  fill: color.mix((green, 20%), white),
+)
+```
+
+The color `color.mix((green, 20%), white)` means 20% green and 80% white mixed together. In fact `fill` can take any value of type <Type>color</Type>, you can even do shading!
+
+By default arcs are in "OPEN" mode where only the curve is drawn and only the chord of the arc will be filled. By using `mode: "PIE"` the arc will be closed around its origin leaving you with a shape akin to a slice of pie, or in this case an angle which can be properly filled.
+
+## Specifying Coordinates
+Karl now wants to add the sine and cosine lines. He knows already that he can use the `stroke:` styling parameter to set the lines' colors. So, what is the best way to specify the coordinates?
+
+There are ifferent ways of specifying coordinates. The easiest way is to say something like `(10pt, 2cm)`. This means 10pt in $x$-direction and 2cm in $y$-directions. Alternatively, you can also leave out the units as in `(1, 2)`, which means "one times the unit length in the $x$-direction and twice the unit length in the $y$-direction". The unit length defaults to 1cm in both directions.
+
+In order to specify points in polar coordinates, use an <Type>array</Type> of the form `(30deg, 1cm)`, which means 1cm in direction 30 degree. This is obviously quite useful to "get to the point $(\cos 30\degree, \sin 30 \degree)$ on the circle".
+
+You can wrap a coordinate in a <Type>dictionary</Type> with the key `rel` as in `(rel: (0cm, 1cm))`. Such coordinates are interpreted differently: They mean "1cm upwards from the previous specified position, making this the new specified position". You can include the key and value `update: false` in the coordinate `(rel: (2cm, 0cm), update: false)` which means "2cm to the right of the previous specified position and do not change the previous position". For example, we an draw the sine line as follows:
+```typc example
+set-style(
+  stroke: 0.4pt,
+  grid: (
+    stroke: gray + 0.2pt,
+    step: 0.5
+  )
+)
+scale(3)
+grid((-0.5, -0.5), (1, 1))
+line((-0.5, 0), (1, 0))
+line((0, -0.5), (0, 1))
+arc((0, 1), start: 90deg, delta: -120deg)
+arc(
+  (3mm, 0),
+  start: 0deg,
+  stop: 30deg,
+  radius: 3mm,
+  mode: "PIE",
+  fill: color.mix((green, 20%), white),
+)
+line((30deg, 1cm), (rel: (0, -0.5)), stroke: red + 1.2pt)
+```
+
+Karl used the fact $\sin 30 \degree = 1/2$. However, he very much doubts that his students know this, so it would be nice to have a way of specifying "the point straight down from `(30deg, 1cm)` that lies on the $x$-axis". This is, indeed, possible using a special coordinate: Karl can write `((30deg, 1cm), "|-", (0, 0))`. In general, the meaning of `(p, "|-", q)` is "the intersection of a vertical line through $p$ and a horizontal line through $q$".
+
+Next, let us draw the cosine line. One way would be to say 

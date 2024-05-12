@@ -59,7 +59,7 @@ When false the previous the previous position will not be updated.
 </Parameter>
 
 <Parameter name="to" types="coordinate" default_value="()">
-The coordinate to treat as the previous coodinate.
+The coordinate to treat as the previous coordinate.
 </Parameter>
 
 In the example below, the red circle is placed one unit to the right of the blue circle. If the blue circle was to be moved a different position, the red circle will move with the blue circle to stay one unit to the right.
@@ -100,7 +100,7 @@ line(
 
 
 ## Barycentric
-In the barycentric coordiante system a point is expressed as the linear combination of multiple vectors. The idea is that you specify vectors $v_1, v_2, ..., v_n$ and numbers $\alpha_1, \alpha_2, ..., \alpha_n$. Then the barycentric coordinate specified by these vectors and numbers is 
+In the barycentric coordinate system a point is expressed as the linear combination of multiple vectors. The idea is that you specify vectors $v_1, v_2, ..., v_n$ and numbers $\alpha_1, \alpha_2, ..., \alpha_n$. Then the barycentric coordinate specified by these vectors and numbers is 
 $$
 \frac{\alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n}{\alpha_1 + \alpha_2 + \cdots + \alpha_n}
 $$
@@ -152,14 +152,14 @@ for (c, s, f, cont) in (
 ```
 
 ## Anchor
-Defines a piont relative to a named element using anchors, see [Anchors](/basics/anchors).
+Defines a point relative to a named element using anchors, see [Anchors](/basics/anchors).
 
 <Parameter name="name" types="str">
 The name of the element that you wish to use to specify a coordinate.
 </Parameter>
 
 <Parameter name="anchor" types="str,angle,number,ratio,none" default_value="none">
-The anchor of the element. Strings are named anchors, angles are border anchors and numbers and ratios are path anchors. If not given, the default anchor will be used, on most elements this is `center` but it can be different or not exsist at all!
+The anchor of the element. Strings are named anchors, angles are border anchors and numbers and ratios are path anchors. If not given, the default anchor will be used, on most elements this is `center` but it can be different or not exist at all!
 </Parameter>
 
 ```typc example
@@ -181,7 +181,7 @@ rect("line.start", "circle.east")
 ```
 
 ## Tangent
-This system allows you to compute the point that lies tangent ot a shape. In detail, consider an element and a point. Now draw a straight line from the point so that it "touches" the element (more formally, so that it is _tangent_ to this element). The point where the line touches the shape is the point referred to by this coordinate system.
+This system allows you to compute the point that lies tangent to a shape. In detail, consider an element and a point. Now draw a straight line from the point so that it "touches" the element (more formally, so that it is _tangent_ to this element). The point where the line touches the shape is the point referred to by this coordinate system.
 
 <Parameter name="element" types="str">
 The name of the element on whose border the tangent should lie.

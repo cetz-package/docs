@@ -36,6 +36,8 @@ const config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: './sidebars.js',
+          editUrl: "https://github.com/cetz-package/docs/blob/main",
+
           beforeDefaultRemarkPlugins: [typstRender],
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
@@ -60,9 +62,22 @@ const config = {
           type: 'docSidebar',
           sidebarId: 'docs',
           label: 'Docs',
-        },
+        }
       ],
     },
+    footer: {
+      links: [
+        {
+          label: "Homepage",
+          href: "https://cetz-package.github.io"
+        },
+        {
+          label: "Github",
+          href: "https://github.com/cetz-package/cetz"
+        }
+      ]
+    },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,

@@ -137,7 +137,7 @@ grid((-1.5, -1.5), (1.5, 1.5), step: 0.5)
 ```
 
 Having another look at his desired picture, karl notices that it would be nice for the grid to be more subdued. To subdue the grid, Karl adds more named arguments to the `grid` draw function. First, he uses the color `gray` for the grid lines. Second, he reduces the line width to `0.2pt` (Ti*k*Z's `very thin`). Finally, he swaps the ordering of the commands so that the grid is drawn first and everything else on top.
-```typc example
+```typc example vertical
 grid((-1.5, -1.5), (1.5, 1.5), step: 0.5, stroke: gray + 0.2pt)
 line((-1.5, 0), (1.5, 0))
 line((0, -1.5), (0, 1.5))
@@ -150,7 +150,7 @@ Karl notices that the thickness of the circle and axes paths are much greater th
 
 We can use the `set-style` draw function to apply styling to all subsequent draw functions, similar to how Typst's `set` and `show` rules work. To set the stroke's thickness he uses the named argument `stroke: 0.4pt`:
 
-```typc example
+```typc example vertical
 set-style(stroke: 0.4pt)
 grid((-1.5, -1.5), (1.5, 1.5), step: 0.5, stroke: gray + 0.2pt)
 line((-1.5, 0), (1.5, 0))
@@ -210,6 +210,6 @@ arc((3mm, 0), start: 0deg, stop: 30deg, radius: 3mm)
 ```
 
 As for circles, you can specify the radius as an array of two numbers to get an elliptical arc.
-```typc example
+```typc example vertical
 arc((0, 0), start: 0deg, stop: 315deg, radius: (1.75, 1))
 ```

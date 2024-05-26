@@ -26,7 +26,7 @@ line((0, 0), (1, 1), stroke: green)
 
 Instead of having to specify the same styling for each time you want to draw an element, you can use the `set-style()` function to change the style for all elements after it, like a Typst `set` rule. You can still pass styling to a draw function to override what has been set with `set-style()`. You can also use the `fill()` and `stroke()` functions as a shorthand to set the fill and stroke respectively.
 
-```typc example
+```typc example vertical
 // Draws an empty square with a black border
 rect((-1, -1), (1, 1))
 
@@ -40,7 +40,7 @@ line((), (1,1), stroke: green)
 
 When using a dictionary for a style, it is important to onte that they update each other instead of overriding the entire option like a non-dictionary value would. For example, if the stroke is set to `(paint: red, thickness: 5pt)` and you pass `(paint: blue)`, the stroke would become `(paint: blue, thickness: 5pt)`.
 
-```typc example
+```typc example vertical
 // Sets the stroke to red with a thickness of 5pt
 set-style(stroke: (paint: red, thickness: 5pt))
 

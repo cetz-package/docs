@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 0 0 var(--ifm-spacing-vertical);
+}
+
+.wrapper > * {
+  flex: 1 1 0;
+  min-width: 300px;
+}
+
+/* CodeBlock Container */
+.wrapper > div:nth-child(1) {
+  margin: 0;
+  display: flex;
+  overflow-x: auto;
+}
+
+/* CodeBlock Content */
+.wrapper > div:nth-child(1) > div:nth-child(1) {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper > img {
+  background: white;
+  border-radius: var(--ifm-pre-border-radius);
+}
+
+.wrapper.vertical > :not(img) {
+  min-width: 100%;
+}

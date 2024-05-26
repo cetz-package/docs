@@ -109,7 +109,7 @@ $$
 A dictionary where the key is a named element and the value is a <Type>float</Type>. The `center` anchor of the named element is used as $v$ and the value is used as $\alpha$
 </Parameter>
 
-```typc example
+```typc example vertical
 circle((90deg, 3), radius: 0, name: "content")
 circle((210deg, 3), radius: 0, name: "structure")
 circle((-30deg, 3), radius: 0, name: "form")
@@ -162,7 +162,7 @@ The name of the element that you wish to use to specify a coordinate.
 The anchor of the element. Strings are named anchors, angles are border anchors and numbers and ratios are path anchors. If not given, the default anchor will be used, on most elements this is `center` but it can be different or not exsist at all!
 </Parameter>
 
-```typc example
+```typc example vertical
 circle((0,0), name: "circle")
 // Anchor at 30 degree
 content((name: "circle", anchor: 30deg), box(fill: white, $ 30 degree $))
@@ -231,7 +231,7 @@ The coordinate through which the vertical line passes.
 
 You can use the implicit syntax of `(horizontal, "-|", vertical)` or `(vertical, "|-", horizontal)`.
 
-```typc example
+```typc example vertical
 set-style(content: (padding: .05))
 content((30deg, 1), $ p_1 $, name: "p1")
 content((75deg, 1), $ p_2 $, name: "p2")
@@ -269,7 +269,7 @@ Angle between $\vec{AB}$ and $\vec{AP}$, where $P$ is the resulting coordinate. 
 
 Can be used implicitly as an array in the form `(a, number, b)` or `(a, number, angle, b)`.
 
-```typc example
+```typc example vertical
 grid((0,0), (3,3), help-lines: true)
 
 line((0,0), (2,2), name: "a")

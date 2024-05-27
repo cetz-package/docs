@@ -1,13 +1,9 @@
 .wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  place-items: stretch;
   gap: 15px;
-  flex-wrap: wrap;
   margin: 0 0 var(--ifm-spacing-vertical);
-}
-
-.wrapper > * {
-  flex: 1 1 0;
-  min-width: 300px;
 }
 
 /* CodeBlock Container */
@@ -15,6 +11,7 @@
   margin: 0;
   display: flex;
   overflow-x: auto;
+  min-width: 300px;
 }
 
 /* CodeBlock Content */
@@ -26,10 +23,29 @@
 }
 
 .wrapper > img {
-  background: white;
+  background: #fffdf2;
   border-radius: var(--ifm-pre-border-radius);
+}
+
+.wrapper.vertical {
+  grid-template-rows: auto auto;
+  grid-template-columns: unset;
 }
 
 .wrapper.vertical > :not(img) {
   min-width: 100%;
+}
+
+.wrapper.vertical > img {
+  max-height: 200px;
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper {
+    grid-template-rows: auto auto;
+    grid-template-columns: unset;
+  }
+  .wrapper > img {
+    max-height: 200px;
+  }
 }

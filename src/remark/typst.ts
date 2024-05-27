@@ -3,7 +3,6 @@ import { exec } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { Root as MdastRoot } from "mdast";
-import type { VFile } from "vfile";
 import type { MdxJsxAttributeValueExpression } from "mdast-util-mdx-jsx";
 
 const typTemplate = `
@@ -13,7 +12,7 @@ const typTemplate = `
 
 const typcTemplate = [
   `
-    #set page(height: auto, fill: yellow.lighten(95%), margin: 1cm)
+    #set page(height: auto, width: auto, fill: yellow.lighten(95%), margin: 1cm)
     #import "@preview/cetz:0.2.2"
     #align(center, cetz.canvas({
       import cetz.draw: *
@@ -22,7 +21,7 @@ const typcTemplate = [
 ];
 
 const plugin = () => {
-  const transformer = async (ast: MdastRoot, vfile: VFile) => {
+  const transformer = async (ast: MdastRoot) => {
     let children: Promise<void>[] = [];
     let folder = "typst_renders/";
     visit(ast, { type: "code" } as const, (node, index, parent) => {

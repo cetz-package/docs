@@ -55,6 +55,11 @@ const config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    docs: {
+      sidebar: {
+        hideable: true
+      }
+    },
     navbar: {
       title: 'CeTZ Documentation',
       items: [

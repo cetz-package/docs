@@ -15,7 +15,9 @@ export default function Parameter({ children, name, default_value = undefined, t
         <div class="parameter-details">
             <div class="main-details">
                 <h4 id={anchor}>{name}: </h4>
-                {types.map((t, i) => <span>{(i !== 0 ? " or " : "")} <Type>{t}</Type></span>)}
+                <div class="type-details">
+                    {types.map((t, i) => <span>{(i !== 0 ? " or " : "")} <Type>{t}</Type></span>)}
+                </div>
             </div>
             <span>
                 {default_value === undefined ? null : <span>Default: <code>{default_value}</code></span>}

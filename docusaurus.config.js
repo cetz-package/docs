@@ -7,7 +7,8 @@
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
-import typstRender from './src/remark/typst.js'
+import typstRender from './src/remark/typst-render.js'
+import typstDoc from './src/remark/typst-doc.js'
 import * as TypstThemes from './src/theme/typst.ts'
 
 const config = {
@@ -38,7 +39,7 @@ const config = {
           sidebarPath: './sidebars.js',
           editUrl: "https://github.com/cetz-package/docs/blob/main",
 
-          beforeDefaultRemarkPlugins: [typstRender],
+          beforeDefaultRemarkPlugins: [typstDoc, typstRender],
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -67,6 +68,11 @@ const config = {
           type: 'docSidebar',
           sidebarId: 'docs',
           label: 'Docs',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'api',
+          label: 'API'
         }
       ],
     },
@@ -96,7 +102,8 @@ const config = {
         'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
       crossorigin: 'anonymous',
     },
-  ],
+  ]
 };
 
 export default config;
+

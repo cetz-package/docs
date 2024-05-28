@@ -1,6 +1,5 @@
 ---
 title: The Canvas
-sidebar_position: 1
 ---
 
 The `canvas` function is what handles all of the logic and processing in order to produce drawings. It's usually called with a code block `{...}` as argument. The content of the curly braces is the *body* of the canvas. Import all the draw functions you need at the top of the body:

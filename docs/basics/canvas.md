@@ -1,6 +1,5 @@
 ---
 title: The Canvas
-sidebar_position: 1
 ---
 
 The `canvas` function is what handles all of the logic and processing in order to produce drawings.

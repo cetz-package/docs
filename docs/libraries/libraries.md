@@ -1,6 +1,5 @@
 ---
 title: Libraries
-sidebar_position: 3
 ---
 
 

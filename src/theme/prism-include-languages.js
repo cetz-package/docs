@@ -19,7 +19,6 @@ export default function prismIncludeLanguages(PrismObject) {
 
   // eslint-disable-next-line global-require
   require("@site/src/prism-languages/prism-typst");
-  require("@site/src/prism-languages/prism-typst-code");
 
   delete globalThis.Prism;
 }

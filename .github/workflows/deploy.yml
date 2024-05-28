@@ -7,6 +7,7 @@ on:
 
 jobs:
   get_commits:
+    runs-on: ubuntu-latest
     outputs:
       commit_count: ${{ steps.commit_count.outputs.commit_count }}
     steps:

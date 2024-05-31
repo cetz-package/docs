@@ -1,15 +1,25 @@
+const comment = [
+  {
+    pattern: /\/\*[\s\S]*?\*\//,
+    greedy: true,
+  },
+  {
+    pattern: /(^|[^:])\/\/.*/,
+    lookbehind: true,
+    greedy: true,
+  },
+]
+
+Prism.languages["typst-code"] = {
+  comment: comment,
+  function: /\b(?!\d)[\w-]+(?=\[|\()/,
+  keyword: /(?:#|\b)(?:as|break|context|continue|else|export|for|if|import|in|include|let|return|set|show|while|none|auto)\b/,
+  interpolate: /#[\w-]+/,
+  number: /[\d][\de.]*(?:deg|rad|mm|cm|em|fr|in|pt|%)?/
+}
+
 Prism.languages.typst = {
-  comment: [
-    {
-      pattern: /\/\*[\s\S]*?\*\//,
-      greedy: true,
-    },
-    {
-      pattern: /(^|[^:])\/\/.*/,
-      lookbehind: true,
-      greedy: true,
-    },
-  ],
+  comment: comment,
   string: [
     {
       pattern: /"(?:\\.|[^\\"])*"/,
@@ -20,62 +30,18 @@ Prism.languages.typst = {
       greedy: true,
     },
   ],
-  keyword:
-    /#(?:as|break|context|continue|else|export|for|if|import|in|include|let|return|set|show|while)\b/,
-  operator: {
-    pattern:
-      /=>|\.{2}|==|!=|<=|>=|<|>|\+=|-=|\*=|\/=|=|\+|\*|\/|-|\b(?:and|not|or)\b/,
-    greedy: true,
-  },
-  constant: [
+  "code-mode": [
     {
-      pattern: /\b(?:auto|false|none|true)\b/,
-      greedy: true,
+      pattern: /(?<=#.*)\{[\s\S]*\}/,
+      inside: Prism.languages["typst-code"]
     },
     {
-      pattern: /\b\d+(\.\d+)?(?:cm|deg|em|fr|in|mm|pt|rad|%)\b/,
-      greedy: true,
+      pattern: /#.+/,
+      inside: Prism.languages["typst-code"]
     },
-    {
-      pattern: /\b0x[\da-fA-F]+|\b0b[01]+|\b0o[0-7]+|\b\d+\b/,
-      greedy: true,
-    },
-  ],
-  punctuation: {
-    pattern: /[{}[\];(),.:]/,
-    greedy: true,
-  },
-  "attr-name": {
-    pattern: /<\w[\w-]*>/,
-    greedy: true,
-  },
-  "attr-value": {
-    pattern: /@\w[\w-]*/,
-    greedy: true,
-  },
-  bold: {
-    pattern: /\*(?=\S)(?:\\.|[^\\*])*\*(?=\W|_|$)/,
-    lookbehind: true,
-    greedy: true,
-    inside: {
-      punctuation: /\*/,
-    },
-  },
-  italic: {
-    pattern: /_(?=\S)(?:\\.|[^\\_])*_(?=\W|_|$)/,
-    lookbehind: true,
-    greedy: true,
-    inside: {
-      punctuation: /_/,
-    },
-  },
-  important: {
-    pattern: /^=+\s+[^\n<]*/,
-    greedy: true,
-    inside: {
-      punctuation: /^=+/,
-    },
-  },
+
+  ]
 };
 
 Prism.languages.typ = Prism.languages.typst;
+Prism.languages.typc = Prism.languages["typst-code"];

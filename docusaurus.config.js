@@ -4,11 +4,11 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import { themes as prismThemes } from 'prism-react-renderer';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 import typstRender from './src/remark/typst.ts'
+import * as TypstThemes from './src/theme/typst.ts'
 
 const config = {
   title: 'CeTZ Documentation',
@@ -55,6 +55,11 @@ const config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    docs: {
+      sidebar: {
+        hideable: true
+      }
+    },
     navbar: {
       title: 'CeTZ Documentation',
       items: [
@@ -79,8 +84,8 @@ const config = {
     },
 
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.oneDark,
+      theme: TypstThemes.light,
+      darkTheme: TypstThemes.dark,
     },
   },
   stylesheets: [

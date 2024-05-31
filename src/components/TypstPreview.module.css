@@ -22,6 +22,10 @@
   align-items: center;
 }
 
+.wrapper > div:nth-child(1) > div:nth-child(1) > pre {
+  width: 100%;
+}
+
 .wrapper > img {
   background: #fffdf2;
   border-radius: var(--ifm-pre-border-radius);

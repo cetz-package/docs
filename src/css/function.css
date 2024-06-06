@@ -1,0 +1,29 @@
+.parameters {
+  margin-inline-start: 1.235em;
+}
+
+.parameters>span {
+  display: block;
+}
+
+pre.function-definition {
+  box-shadow: var(--ifm-global-shadow-lw);
+  border-radius: var(--ifm-code-border-radius);
+  background-color: var(--code-background-color)
+}
+
+.name {
+  color: var(--typ-func);
+}
+
+.function-definition .type {
+  margin-top: 4px;
+}
+.function-definition .type + .type {
+  margin-left: 4px
+}
+
+.parameter>a {
+  text-decoration: none;
+  color: inherit !important;
+}

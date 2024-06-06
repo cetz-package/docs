@@ -11,5 +11,6 @@ img {
 }
 
 code {
-  border: 0.1rem solid var(--ifm-code-background)
+  border: none;
+  padding: 0.2rem;
 }

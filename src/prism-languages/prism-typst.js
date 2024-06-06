@@ -15,16 +15,16 @@ Prism.languages["typst-code"] = {
   function: /\b(?!\d)[\w-]+(?=\[|\()/,
   keyword: /(?:#|\b)(?:as|break|context|continue|else|export|for|if|import|in|include|let|return|set|show|while|none|auto)\b/,
   interpolate: /#[\w-]+/,
-  number: /[\d][\de.]*(?:deg|rad|mm|cm|em|fr|in|pt|%)?/
+  number: /[\d][\de.]*(?:deg|rad|mm|cm|em|fr|in|pt|%)?/,
+  string: {
+    pattern: /#?"(?:\\.|[^\\"])*"/,
+    greedy: true,
+  },
 }
 
 Prism.languages.typst = {
   comment: comment,
   string: [
-    {
-      pattern: /"(?:\\.|[^\\"])*"/,
-      greedy: true,
-    },
     {
       pattern: /\$(?:\\.|[^\\$])*\$/,
       greedy: true,

@@ -249,7 +249,7 @@ line("p2.south-east", ((), "-|", "yline.end")) // Short form
 ```
 
 ## Interpolation
-Use this to linearly interpolate between two coordinates `a` and `b` with a given distance `number`. If `number` is a <Type>number</Type> the position will be at the absolute distance away from `a` towards `b`, a <Type>ratio</Type> can be given instead to be the relative distance between `a` and `b`. An <Type>angle</Type> can also be given for the general meaning: "First consider the line from `a` to `b`. Then rotate this line by `angle` around point `a`. Then the two endpoints of this lien will be `a` and some point `c`. Use the point `c` for the subsequent computation."
+Use this to linearly interpolate between two coordinates `a` and `b` with a given distance `number`. If `number` is a <Type>number</Type> the position will be at the absolute distance away from `a` towards `b`, a <Type>ratio</Type> can be given instead to be the relative distance between `a` and `b`. An <Type>angle</Type> can also be given for the general meaning: "First consider the line from `a` to `b`. Then rotate this line by `angle` around point `a`. Then the two endpoints of this line will be `a` and some point `c`. Use the point `c` for the subsequent computation."
 
 <Parameter name="a" types="coordinate">
 The coordinate to interpolate from.

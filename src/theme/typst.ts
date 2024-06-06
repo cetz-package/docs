@@ -1,5 +1,53 @@
 import type { PrismTheme } from "prism-react-renderer"
 
+const a = {
+  plain: {
+    color: "var(--code-color)",
+    backgroundColor: "var(--code-background-color)",
+  },
+  styles: [
+    {
+      types: ["comment"],
+      style: {
+        color: "var(--typ-comment)"
+      }
+    },
+    {
+      types: ["keyword", "boolean"],
+      style: {
+        color: "var(--typ-keyword)"
+      }
+    },
+    {
+      types: ["function"],
+      style: {
+        color: "var(--typ-func)"
+      }
+    },
+    {
+      types: ["number"],
+      style: {
+        color: "var(--typ-num)"
+      }
+    },
+    {
+      types: ["string"],
+      style: {
+        color: "var(--typ-str)"
+      }
+    },
+    {
+      types: ["interpolate"],
+      style: {
+        color: "var(--typ-pol)"
+      }
+    }
+  ]
+}
+
+export default a;
+
+/*
 export const light: PrismTheme = {
   plain: {
     color: "#19181F",
@@ -48,7 +96,7 @@ export const light: PrismTheme = {
 export const dark: PrismTheme = {
   plain: {
     color: "#fdfdfd",
-    backgroundColor: "#19181f",
+    backgroundColor: "var(--code-background-color)",
   },
   styles: [
     {
@@ -89,3 +137,4 @@ export const dark: PrismTheme = {
     }
   ]
 }
+*/

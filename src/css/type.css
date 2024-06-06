@@ -23,7 +23,7 @@ h1 .type > a, h2 .type > a, h3 .type > a {
 .type {
   border-radius: 4px;
   font-size: 14px;
-  padding: 2px 4px;
+  padding: 1px 4px;
   font-family: Cascadia Mono, Courier New, Courier, monospace;
   white-space: nowrap;
   display: inline-block;

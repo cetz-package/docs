@@ -15,6 +15,14 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --code-background-color: #fdfdfd;
+  --code-color: #19181f;
+  --typ-comment: #8a8a8a;
+  --typ-keyword: #d73a49;
+  --typ-func: #4b69c6;
+  --typ-num: #b60157;
+  --typ-str: #298e0d;
+  --typ-pol: #8b41b1
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,4 +35,12 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --code-background-color: #19181f;
+  --code-color: #fdfdfd;
+  --typ-comment: #b0b3c2;
+  --typ-keyword: #FFA49D;
+  --typ-func: #7CD5FF;
+  --typ-num: #ff7d79;
+  --typ-str: #80F4B6;
+  --typ-pol: #CAA8FF
 }

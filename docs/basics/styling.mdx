@@ -34,11 +34,11 @@ rect((-1, -1), (1, 1))
 set-style(stroke: blue, fill: red)
 circle((0,0))
 
-// Draws a green line despite the global stroke is blue
+// Draws a green line despite the global stroke being blue
 line((), (1,1), stroke: green)
 ```
 
-When using a dictionary for a style, it is important to onte that they update each other instead of overriding the entire option like a non-dictionary value would. For example, if the stroke is set to `(paint: red, thickness: 5pt)` and you pass `(paint: blue)`, the stroke would become `(paint: blue, thickness: 5pt)`.
+When using a dictionary for a style, it is important to note that they update each other instead of overriding the entire option like a non-dictionary value would. For example, if the stroke is set to `(paint: red, thickness: 5pt)` and you pass `(paint: blue)`, the stroke would become `(paint: blue, thickness: 5pt)`.
 
 ```typc example vertical
 // Sets the stroke to red with a thickness of 5pt

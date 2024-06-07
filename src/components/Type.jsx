@@ -36,6 +36,6 @@ const types = {
 
 export default function Type({ children }) {
     const type = types[children]
-    return <span class={`type type-${type.class ?? "obj"}`}><a href={type.link}>{children}</a></span>
+    return <span className={`type type-${type.class ?? "obj"}`}><a href={type.link}>{children}</a></span>
 }
 

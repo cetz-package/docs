@@ -70,21 +70,18 @@ const types = {
     link: "https://typst.app/docs/reference/foundations/dictionary",
   },
   array: { link: "https://typst.app/docs/reference/foundations/array" },
+  function: { link: "https://typst.app/docs/reference/foundations/function" },
   direction: { link: "https://typst.app/docs/reference/layout/direction" },
 };
 
 export default function Type({ children }) {
-  children = children.trim()
+  children = children.trim();
   const type = types[children];
-  if (type === undefined) {
-    throw "No type:" + children;
-  } else {
-    return (
-      <span className={`type type-${type.class ?? "obj"}`}>
-        <a href={type.link}>{children}</a>
-      </span>
-    );
-  }
+  return (
+    <span className={`type type-${type?.class ?? "obj"}`}>
+      <a href={type?.link}>{children}</a>
+    </span>
+  );
 }
 
 export function fromString(types, use_ors = true) {

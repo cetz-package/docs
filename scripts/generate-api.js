@@ -62,6 +62,44 @@ const index = {
         funcs: ["merge-path"],
       },
     },
+    Grouping: {
+      Hide: {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["hide"],
+      },
+      Intersections: {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["intersections"],
+      },
+      Group: {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["group"],
+      },
+      Anchor: {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["anchor"],
+      },
+      "Copy Anchors": {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["copy-anchors"],
+      },
+      "Set Ctx": {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["set-ctx"],
+      },
+      "Get Ctx": {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["get-ctx"],
+      },
+      "For Each Anchor": {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["for-each-anchor"],
+      },
+      "On Layer": {
+        path: "cetz/src/draw/grouping.typ",
+        funcs: ["on-layer"],
+      },
+    },
   },
 };
 
@@ -124,7 +162,4 @@ async function main(write_path, index) {
   await fs.writeFile(write_path + ".mdx", content);
 }
 
-(async () => {
-  await main("temp", index);
-  await fs.move("temp", "docs/api", { overwrite: true });
-})();
+main("api", index);

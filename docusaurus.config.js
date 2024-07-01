@@ -34,6 +34,7 @@ const config = {
       "classic",
       {
         docs: {
+          path: "cetz/docs",
           routeBasePath: "/",
           sidebarPath: "./sidebars.js",
           editUrl: "https://github.com/cetz-package/docs/blob/main",

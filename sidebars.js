@@ -11,7 +11,7 @@
 
 // @ts-check
 
-import api from "./cetz/docs/api/index";
+import api from "./cetz/docs/api/sidebar";
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {

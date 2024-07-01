@@ -5,13 +5,13 @@ import { existsSync } from 'node:fs';
 
 const typTemplate = `
 #set page(height: auto, fill: yellow.lighten(95%), margin: 1cm)
-#import "@preview/cetz:0.2.2"\n
+#import "/src/lib.typ" as cetz\n
 `
 
 const typcTemplate = [
     `
     #set page(height: auto, fill: yellow.lighten(95%), margin: 1cm)
-    #import "@preview/cetz:0.2.2"
+    #import "/src/lib.typ" as cetz
     #align(center, cetz.canvas({
       import cetz.draw: *
     `,
@@ -29,7 +29,7 @@ const plugin = (options) => {
                 const path = folder + hash + ".svg"
                 if (!existsSync(path)) {
                     children.push(new Promise((resolve) => {
-                        const child = exec("typst c - " + path)
+                        const child = exec(`typst c - ${path} --root ./cetz/`)
                         child.stdout.pipe(process.stdout)
                         child.stderr.pipe(process.stderr)
                         if (node.lang === "typ") {

@@ -14,204 +14,53 @@ const escape_lut = {
 };
 const escape_regex = /[&"'<>]/g;
 
-// const index = {
-//   "Draw Functions": {
-//     Shapes: {
-//       Circle: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["circle", "circle-through"],
-//       },
-//       Arc: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["arc", "arc-through"],
-//       },
-//       Mark: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["mark"],
-//       },
-//       Line: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["line"],
-//       },
-//       Grid: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["grid"],
-//       },
-//       Content: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["content"],
-//       },
-//       Rect: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["rect"],
-//       },
-//       Bezier: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["bezier", "bezier-through"],
-//       },
-//       Hobby: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["hobby"],
-//       },
-//       Catmull: {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["catmull"],
-//       },
-//       "Merge Path": {
-//         path: "cetz/src/draw/shapes.typ",
-//         funcs: ["merge-path"],
-//       },
-//     },
-//     Grouping: {
-//       Hide: {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["hide"],
-//       },
-//       Intersections: {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["intersections"],
-//       },
-//       Group: {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["group"],
-//       },
-//       Anchor: {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["anchor"],
-//       },
-//       "Copy Anchors": {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["copy-anchors"],
-//       },
-//       "Set Ctx": {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["set-ctx"],
-//       },
-//       "Get Ctx": {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["get-ctx"],
-//       },
-//       "For Each Anchor": {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["for-each-anchor"],
-//       },
-//       "On Layer": {
-//         path: "cetz/src/draw/grouping.typ",
-//         funcs: ["on-layer"],
-//       },
-//     },
-//   },
-// };
-
-async function main(write_path, index) {
-  if (!(index.path !== undefined && index.funcs !== undefined)) {
-    await fs.mkdirs("cetz/docs/_generated");
-    Object.entries(index).map(([p, i]) => main(write_path + "/" + p, i));
-    return;
-  }
-  let content = `import Type from "@site/src/components/Type";\nimport Function from "@site/src/components/Function";\nimport Parameter from "@site/src/components/Parameter";\n\n`;
-  let f = await fs.readFile(index.path, { encoding: "utf-8" });
-  index.funcs.forEach((func, i) => {
-    const description_regex = new RegExp(
-      `(?:^\\/\\/\\/.*\\r?\\n)+(?=#let ${func}\\()`,
-      "gm"
-    );
-    const function_regex = new RegExp(
-      `(?<=#let ${func}\\()[\\s\\S]+?(?=\\) = )`,
-      "gm"
-    );
-    let parameters = Object.fromEntries(
-      Array.from(f.match(function_regex)[0].matchAll(parameter_regex), (m) => [
-        m[1],
-        { default: m[2] },
-      ])
-    );
-
-    let description = Array.from(f.matchAll(description_regex), (m) => m[0])[0];
-    description = description.replace(comment_regex, "");
-    description = description.replace(
-      parameter_description_regex,
-      (_, name, types, def, description) => {
-        if (parameters[name] !== undefined) {
-          parameters[name].types = types;
-          if (def === undefined) {
-            def = parameters[name].default;
-          }
-        }
-        if (description !== "") {
-          return `<Parameter name="${name}" types="${types}" ${
-            def !== undefined
-              ? 'default_value="' +
-                def.replace(escape_regex, (c) => escape_lut[c]) +
-                '"'
-              : ""
-          }>${description}</Parameter>`;
-        } else {
-          return "";
-        }
-      }
-    );
-
-    if (i !== 0) {
-      content += `\n## ${func}\n`;
-    }
-    content +=
-      `<Function name="${func}" parameters={${JSON.stringify(
-        parameters
-      )}}/>\n` + description;
-  });
-  await fs.writeFile(write_path + ".mdx", content);
-}
-
-// main("api", index);
-
-const files = ["cetz/src/draw/shapes.typ"];
+const files = ["cetz/src/draw/shapes.typ", "cetz/src/draw/grouping.typ"];
 
 async function main() {
   await fs.mkdirs("cetz/docs/_generated");
-
-  let f = await fs.readFile(files[0], { encoding: "utf-8" });
-  for (const match of f.matchAll(
-    /((?:\/\/\/.*\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm
-  )) {
-    let content = `import Type from "@site/src/components/Type";\nimport Function from "@site/src/components/Function";\nimport Parameter from "@site/src/components/Parameter";\n\n`;
-    let func = match[2];
-    let parameters = Object.fromEntries(
-      Array.from(match[3].matchAll(parameter_regex), (m) => [
-        m[1],
-        { default: m[2] },
-      ])
-    );
-    console.log(parameters);
-    let description = match[1]
-      .replace(comment_regex, "")
-      .replace(
-        parameter_description_regex,
-        (_, name, types, def, description) => {
-          if (parameters[name] !== undefined) {
-            parameters[name].types = types;
-            if (def === undefined) {
-              def = parameters[name].default;
+  for (const file of files) {
+    let f = await fs.readFile(file, { encoding: "utf-8" });
+    for (const match of f.matchAll(
+      /((?:\/\/\/.*\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm
+    )) {
+      let content = `import Type from "@site/src/components/Type";\nimport Function from "@site/src/components/Function";\nimport Parameter from "@site/src/components/Parameter";\n\n`;
+      let func = match[2];
+      let parameters = Object.fromEntries(
+        Array.from(match[3].matchAll(parameter_regex), (m) => [
+          m[1],
+          { default: m[2] },
+        ])
+      );
+      let description = match[1]
+        .replace(comment_regex, "")
+        .replace(
+          parameter_description_regex,
+          (_, name, types, def, description) => {
+            if (parameters[name] !== undefined) {
+              parameters[name].types = types;
+              if (def === undefined) {
+                def = parameters[name].default;
+              }
+            }
+            if (description !== "") {
+              return `<Parameter name="${name}" types="${types}" ${
+                def !== undefined
+                  ? 'default_value="' +
+                    def.replace(escape_regex, (c) => escape_lut[c]) +
+                    '"'
+                  : ""
+              }>${description}</Parameter>`;
+            } else {
+              return "";
             }
           }
-          if (description !== "") {
-            return `<Parameter name="${name}" types="${types}" ${
-              def !== undefined
-                ? 'default_value="' +
-                  def.replace(escape_regex, (c) => escape_lut[c]) +
-                  '"'
-                : ""
-            }>${description}</Parameter>`;
-          } else {
-            return "";
-          }
-        }
-      );
-    content +=
-      `<Function name="${func}" parameters={${JSON.stringify(
-        parameters
-      )}}/>\n` + description;
-    await fs.writeFile(`cetz/docs/_generated/${func}.mdx`, content);
+        );
+      content +=
+        `<Function name="${func}" parameters={${JSON.stringify(
+          parameters
+        )}}/>\n` + description;
+      await fs.writeFile(`cetz/docs/_generated/${func}.mdx`, content);
+    }
   }
 }
 

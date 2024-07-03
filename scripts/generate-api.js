@@ -18,8 +18,8 @@ const files = ["cetz/src/draw/shapes.typ", "cetz/src/draw/grouping.typ"];
 
 async function main() {
   await fs.mkdirs("cetz/docs/_generated");
-  for (const file of files) {
-    let f = await fs.readFile(file, { encoding: "utf-8" });
+  for (const file of await fs.readdir("cetz/src/draw/")) {
+    let f = await fs.readFile("cetz/src/draw/" + file, { encoding: "utf-8" });
     for (const match of f.matchAll(
       /((?:\/\/\/.*\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm
     )) {

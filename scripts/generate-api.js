@@ -4,6 +4,8 @@ const fs = require("fs-extra");
 const comment_regex = /^\/\/\/ ?/gm;
 const parameter_description_regex = /^- (.*?) \((.*?)\)(?: = (.*?))?:(.*)/gm;
 const parameter_regex = /((?:\.\.)?[\w-]+)(?::\s*(.+?))?(?:,|$)/gm;
+const docstring_regex = /((?:\/\/\/.*\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm;
+const returns_regex = /^-> (.*)/;
 
 const escape_lut = {
   "&": "&amp;",
@@ -14,16 +16,22 @@ const escape_lut = {
 };
 const escape_regex = /[&"'<>]/g;
 
-const files = ["cetz/src/draw/shapes.typ", "cetz/src/draw/grouping.typ"];
+// const files = ["cetz/src/draw/shapes.typ", "cetz/src/draw/grouping.typ"];
+
+const root = "cetz/src/";
+const gen_root = "cetz/docs/_generated/";
 
 async function main() {
-  await fs.mkdirs("cetz/docs/_generated");
-  for (const file of await fs.readdir("cetz/src/draw/")) {
-    let f = await fs.readFile("cetz/src/draw/" + file, { encoding: "utf-8" });
-    for (const match of f.matchAll(
-      /((?:\/\/\/.*\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm
-    )) {
-      let content = `import Type from "@site/src/components/Type";\nimport Function from "@site/src/components/Function";\nimport Parameter from "@site/src/components/Parameter";\n\n`;
+  for (const file of await fs.readdir(root, { recursive: true })) {
+    console.log(file);
+    if (!file.endsWith(".typ")) {
+      continue;
+    }
+    let f = await fs.readFile(root + file, { encoding: "utf-8" });
+    const folder = gen_root + file.slice(0, -4);
+    await fs.mkdirs(folder);
+    for (const match of f.matchAll(docstring_regex)) {
+      let content = "";
       let func = match[2];
       let parameters = Object.fromEntries(
         Array.from(match[3].matchAll(parameter_regex), (m) => [
@@ -31,6 +39,7 @@ async function main() {
           { default: m[2] },
         ])
       );
+      let returns;
       let description = match[1]
         .replace(comment_regex, "")
         .replace(
@@ -54,12 +63,16 @@ async function main() {
               return "";
             }
           }
-        );
+        )
+        .replace(returns_regex, (_, types) => {
+          returns = types;
+          return "";
+        });
       content +=
-        `<Function name="${func}" parameters={${JSON.stringify(
-          parameters
-        )}}/>\n` + description;
-      await fs.writeFile(`cetz/docs/_generated/${func}.mdx`, content);
+        `<Function name="${func}" ${
+          returns !== null ? `returns="${returns}"` : ""
+        } parameters={${JSON.stringify(parameters)}}/>\n` + description;
+      await fs.writeFile(`${folder}/${func}.mdx`, content);
     }
   }
 }

@@ -5,7 +5,7 @@ const comment_regex = /^\/\/\/ ?/gm;
 const parameter_description_regex = /^- (.*?) \((.*?)\)(?: = (.*?))?:(.*)/gm;
 const parameter_regex = /((?:\.\.)?[\w-]+)(?::\s*(.+?))?(?:,|$)/gm;
 const docstring_regex = /((?:\/\/\/.*\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm;
-const returns_regex = /^-> (.*)/;
+const returns_regex = /^-> (.*)/mg;
 
 const escape_lut = {
   "&": "&amp;",
@@ -64,13 +64,13 @@ async function main() {
             }
           }
         )
-        .replace(returns_regex, (_, types) => {
+        .replace(returns_regex, (arst, types) => {
           returns = types;
           return "";
         });
       content +=
         `<Function name="${func}" ${
-          returns !== null ? `returns="${returns}"` : ""
+          returns !== undefined ? `returns="${returns}"` : ""
         } parameters={${JSON.stringify(parameters)}}/>\n` + description;
       await fs.writeFile(`${folder}/${func}.mdx`, content);
     }

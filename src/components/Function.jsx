@@ -15,17 +15,13 @@ export default function Function({ name, parameters, returns = null }) {
         {Object.entries(parameters).map(([name, value]) => {
           return (
             <span className="parameter">
-              <a href={"#" + name.replace("..", "")}>{name}</a>: {fromString(value.types, false)},
+              <a href={"#" + name.replace("..", "")}>{name}</a>:{" "}
+              {fromString(value.types, false)},
             </span>
           );
         })}
       </div>
-      ){" "}
-      {returns && (
-        <>
-          -> <Type>{returns}</Type>{" "}
-        </>
-      )}
+      ) {returns && <>-> {fromString(returns)} </>}
     </pre>
   );
 }

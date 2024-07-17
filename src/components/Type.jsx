@@ -1,13 +1,8 @@
 import React from "react";
+import customTypes from "@site/cetz/docs/custom-types"; 
+// import customTypes from "../../cetz/docs/custom-types"; 
 
 const types = {
-  number: { link: "/docs/basics/custom-types#number", class: "num" },
-  coordinate: { link: "/docs/basics/custom-types#coordinate" },
-  style: { link: "/docs/basics/custom-types#style" },
-  context: { link: "/docs/advanced/custom-types#context" },
-  vector: { link: "/docs/advanced/custom-types#vector" },
-  matrix: { link: "/docs/advanced/custom-types#matrix"},
-  element: {},
   // domain: { link: "/docs/libraries/plot#domain" },
   // axes: { link: "/docs/libraries/plot#axes" },
 

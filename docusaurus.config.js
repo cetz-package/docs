@@ -109,16 +109,18 @@ const config = {
   ],
   markdown: {
     preprocessor: ({ filePath, fileContent }) => {
-      return fileContent
-        .replaceAll(/\{\{(\w+)\}\}/g, (_, type) => `<Type>${type}</Type>`)
-        .replaceAll(/@@generated\/([\w-\/]+)/g, (_, path) => {
-          const split = path.split("/");
-          // console.log(split, split[split.length - 1]);
-          const output = `## ${split[split.length - 1]}\nimport Imported from "@site/cetz/docs/_generated/${path}.mdx";\n<Imported />
-          `;
-          // console.log(output);
-          return output;
-        });
+      return fileContent.replaceAll(
+        /\{\{(\w+)\}\}/g,
+        (_, type) => `<Type>${type}</Type>`
+      );
+      // .replaceAll(/@@generated\/([\w-\/]+)/g, (_, path) => {
+      //   const split = path.split("/");
+      //   // console.log(split, split[split.length - 1]);
+      //   const output = `## ${split[split.length - 1]}\nimport Imported from "@site/cetz/docs/_generated/${path}.mdx";\n<Imported />
+      //   `;
+      //   // console.log(output);
+      //   return output;
+      // });
     },
   },
 };

@@ -7,16 +7,16 @@ import Type, { fromString } from "./Type";
 //   "..style": "/docs/basics/styling"
 // }
 
-export default function Function({ name, parameters, returns = null }) {
+export default function Function({ name: fname, parameters, returns = null }) {
   return (
     <pre className="function-definition">
-      <span className="name">{name}</span>(
+      <span className="name">{fname}</span>(
       <div className="parameters">
         {Object.entries(parameters).map(([name, value]) => {
           return (
             <span className="parameter">
               <a href={"#" + name.replace("..", "")}>{name}</a>:{" "}
-              {fromString(value.types, false)},
+              {value.types !== undefined ? fromString(value.types, false) : ""},
             </span>
           );
         })}

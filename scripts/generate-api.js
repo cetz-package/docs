@@ -5,7 +5,7 @@ const comment_regex = /^\/\/\/ ?/gm;
 const parameter_description_regex = /^- (.*?) \((.*?)\)(?: = (.*?))?:(.*)/gm;
 const parameter_regex = /((?:\.\.)?[\w-]+)(?::\s*(.+?))?(?:,|$)/gm;
 const docstring_regex = /((?:\/\/\/.*\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm;
-const returns_regex = /^-> (.*)/mg;
+const returns_regex = /^-> (.*)/gm;
 
 const escape_lut = {
   "&": "&amp;",
@@ -30,6 +30,7 @@ async function main() {
     let f = await fs.readFile(root + file, { encoding: "utf-8" });
     const folder = gen_root + file.slice(0, -4);
     await fs.mkdirs(folder);
+    let c = "";
     for (const match of f.matchAll(docstring_regex)) {
       let content = "";
       let func = match[2];
@@ -45,6 +46,7 @@ async function main() {
         .replace(
           parameter_description_regex,
           (_, name, types, def, description) => {
+            name = name.trim();
             if (parameters[name] !== undefined) {
               parameters[name].types = types;
               if (def === undefined) {
@@ -73,7 +75,12 @@ async function main() {
           returns !== undefined ? `returns="${returns}"` : ""
         } parameters={${JSON.stringify(parameters)}}/>\n` + description;
       await fs.writeFile(`${folder}/${func}.mdx`, content);
+      if (!func.startsWith("_")) {
+        const n = func.replaceAll("-", "").toUpperCase();
+        c += `## ${func}\nimport ${n} from "./${func}.mdx"\n\n<${n}/>\n`;
+      }
     }
+    await fs.writeFile(`${folder}/-combined.mdx`, c);
   }
 }
 

@@ -2,20 +2,18 @@ name: Deploy to GitHub Pages
 
 on: 
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * *"
 
 jobs:
-  get_commits:
-    runs-on: ubuntu-latest
-    outputs:
-      commit_count: ${{ steps.commit_count.outputs.commit_count }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - id: commit_count
-        run: echo "commit_count=$(git log --oneline --since '24 hours ago' | wc -l)" >> "$GITHUB_OUTPUT"
+  # get_commits:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     commit_count: ${{ steps.commit_count.outputs.commit_count }}
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #     - id: commit_count
+  #       run: echo "commit_count=$(git log --oneline --since '24 hours ago' | wc -l)" >> "$GITHUB_OUTPUT"
 
   build:
     name: Build
@@ -26,6 +24,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          submodules: true
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -37,6 +36,9 @@ jobs:
       - uses: typst-community/setup-typst@v3
         with:
           cache-dependency-path: dependencies.typ
+
+      - name: Generate api pages
+        run: node scripts/generate-api.js
 
       - name: Build website
         run: npm run build

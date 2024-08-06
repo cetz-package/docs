@@ -21,6 +21,29 @@ const typcTemplate = [
 ];
 
 const plugin = () => {
+  /**
+   * This transformer renders code blocks of type "typ" (Typst file)
+   * and "typc" (Typst code - to be embedded in `cetz.canvas`).
+   * If the code should be shown, "example" must be inside the metadata,
+   * otherwise "render" (i.e. only output the rendered code).
+   *
+   * For examples, if the rendered output is too large,
+   * "vertical" specifies that the output will show below the code.
+   *
+   * The code is cached inside the `typst_renders/` folder.
+   *
+   * @example
+   *
+   * ````markdown
+   * ```typc example
+   * rect((0, 0), (1, 1))
+   * ```
+   *
+   * ```typc example vertical
+   * rect((0, 0), (1, 1))
+   * ```
+   * ````
+   */
   const transformer = async (ast: MdastRoot) => {
     let children: Promise<void>[] = [];
     let folder = "typst_renders/";
@@ -70,6 +93,13 @@ const plugin = () => {
           url: "@site/" + path,
         };
       } else {
+        // Wrap the code and rendered image in the `TypstPreview` component.
+        // This is equivalent to the following JSX:
+        //
+        // <TypstPreview isVertical={node.meta?.includes("vertical")}>
+        //   {code}
+        //   <img src="@site/..." />
+        // </TypstPreview>
         parent.children[index] = {
           type: "mdxJsxFlowElement",
           name: "TypstPreview",
@@ -83,7 +113,7 @@ const plugin = () => {
           children: [
             node,
             {
-              // @ts-expect-error This will be transformed by the image transformer
+              // @ts-expect-error This will be transformed into an <img> by the image transformer
               type: "image",
               url: "@site/" + path,
             },
@@ -98,6 +128,10 @@ const plugin = () => {
 
 export default plugin;
 
+/**
+ * Produces a JSX expression tree as if the user had written a literal boolean
+ * expression as an attribute (e.g. <Foo bar={true}/>).
+ */
 function boolToJsx(value: boolean): MdxJsxAttributeValueExpression {
   return {
     type: "mdxJsxAttributeValueExpression",

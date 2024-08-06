@@ -22,11 +22,11 @@
   --typ-func: #4b69c6;
   --typ-num: #b60157;
   --typ-str: #298e0d;
-  --typ-pol: #8b41b1
+  --typ-pol: #8b41b1;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -38,9 +38,9 @@
   --code-background-color: #19181f;
   --code-color: #fdfdfd;
   --typ-comment: #b0b3c2;
-  --typ-keyword: #FFA49D;
-  --typ-func: #7CD5FF;
+  --typ-keyword: #ffa49d;
+  --typ-func: #7cd5ff;
   --typ-num: #ff7d79;
-  --typ-str: #80F4B6;
-  --typ-pol: #CAA8FF
+  --typ-str: #80f4b6;
+  --typ-pol: #caa8ff;
 }

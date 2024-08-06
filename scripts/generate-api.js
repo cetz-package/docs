@@ -38,7 +38,7 @@ async function main() {
         Array.from(match[3].matchAll(parameter_regex), (m) => [
           m[1],
           { default: m[2] },
-        ])
+        ]),
       );
       let returns;
       let description = match[1]
@@ -64,7 +64,7 @@ async function main() {
             } else {
               return "";
             }
-          }
+          },
         )
         .replace(returns_regex, (arst, types) => {
           returns = types;

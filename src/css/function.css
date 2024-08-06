@@ -2,14 +2,14 @@
   margin-inline-start: 1.235em;
 }
 
-.parameters>span {
+.parameters > span {
   display: block;
 }
 
 pre.function-definition {
   box-shadow: var(--ifm-global-shadow-lw);
   border-radius: var(--ifm-code-border-radius);
-  background-color: var(--code-background-color)
+  background-color: var(--code-background-color);
 }
 
 .name {
@@ -20,10 +20,10 @@ pre.function-definition {
   margin-top: 4px;
 }
 .function-definition .type + .type {
-  margin-left: 4px
+  margin-left: 4px;
 }
 
-.parameter>a {
+.parameter > a {
   text-decoration: none;
   color: inherit !important;
 }

@@ -111,7 +111,7 @@ const config = {
     preprocessor: ({ filePath, fileContent }) => {
       return fileContent.replaceAll(
         /\{\{(\w+)\}\}/g,
-        (_, type) => `<Type>${type}</Type>`
+        (_, type) => `<Type>${type}</Type>`,
       );
       // .replaceAll(/@@generated\/([\w-\/]+)/g, (_, path) => {
       //   const split = path.split("/");

@@ -1,22 +1,25 @@
-
-.type>a {
+.type > a {
   text-decoration: none;
   color: black !important;
 }
 
-.type>a:hover {
+.type > a:hover {
   text-decoration: none;
 }
 
-.type>a[href=""] {
+.type > a[href=""] {
   pointer-events: none;
 }
 
-h1 .type, h2 .type, h3 .type {
-  font-size: inherit !important
+h1 .type,
+h2 .type,
+h3 .type {
+  font-size: inherit !important;
 }
 
-h1 .type > a, h2 .type > a, h3 .type > a {
+h1 .type > a,
+h2 .type > a,
+h3 .type > a {
   pointer-events: none;
 }
 
@@ -24,7 +27,11 @@ h1 .type > a, h2 .type > a, h3 .type > a {
   border-radius: 4px;
   font-size: 14px;
   padding: 1px 4px;
-  font-family: Cascadia Mono, Courier New, Courier, monospace;
+  font-family:
+    Cascadia Mono,
+    Courier New,
+    Courier,
+    monospace;
   white-space: nowrap;
   display: inline-block;
   font-weight: 400;
@@ -60,9 +67,11 @@ h1 .type > a, h2 .type > a, h3 .type > a {
 
 .type-color {
   background: #7cd5ff;
-  background: linear-gradient(83deg,
-      #7cd5ff,
-      #a6fbca 33%,
-      #fff37c 66%,
-      #ffa49d);
+  background: linear-gradient(
+    83deg,
+    #7cd5ff,
+    #a6fbca 33%,
+    #fff37c 66%,
+    #ffa49d
+  );
 }

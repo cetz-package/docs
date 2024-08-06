@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 
-on: 
+on:
   workflow_dispatch:
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        
+
       - uses: typst-community/setup-typst@v3
         with:
           cache-dependency-path: dependencies.typ

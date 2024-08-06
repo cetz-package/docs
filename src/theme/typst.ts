@@ -1,4 +1,4 @@
-import type { PrismTheme } from "prism-react-renderer"
+import type { PrismTheme } from "prism-react-renderer";
 
 const a = {
   plain: {
@@ -9,41 +9,41 @@ const a = {
     {
       types: ["comment"],
       style: {
-        color: "var(--typ-comment)"
-      }
+        color: "var(--typ-comment)",
+      },
     },
     {
       types: ["keyword", "boolean"],
       style: {
-        color: "var(--typ-keyword)"
-      }
+        color: "var(--typ-keyword)",
+      },
     },
     {
       types: ["function"],
       style: {
-        color: "var(--typ-func)"
-      }
+        color: "var(--typ-func)",
+      },
     },
     {
       types: ["number"],
       style: {
-        color: "var(--typ-num)"
-      }
+        color: "var(--typ-num)",
+      },
     },
     {
       types: ["string"],
       style: {
-        color: "var(--typ-str)"
-      }
+        color: "var(--typ-str)",
+      },
     },
     {
       types: ["interpolate"],
       style: {
-        color: "var(--typ-pol)"
-      }
-    }
-  ]
-}
+        color: "var(--typ-pol)",
+      },
+    },
+  ],
+};
 
 export default a;
 

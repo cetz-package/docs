@@ -1,6 +1,6 @@
 import React from "react";
-import customTypes from "@site/cetz/docs/custom-types"; 
-// import customTypes from "../../cetz/docs/custom-types"; 
+import customTypes from "@site/cetz/docs/custom-types";
+// import customTypes from "../../cetz/docs/custom-types";
 
 const types = {
   // domain: { link: "/docs/libraries/plot#domain" },
@@ -89,6 +89,6 @@ export function fromString(types, use_ors = true) {
       </span>
     ) : (
       <Type>{t}</Type>
-    )
+    ),
   );
 }

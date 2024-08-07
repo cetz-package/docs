@@ -1,0 +1,4 @@
+[submodule "cetz"]
+	path = cetz
+	url = https://github.com/cetz-package/cetz
+	branch = changing-docstrings

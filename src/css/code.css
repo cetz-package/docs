@@ -7,9 +7,10 @@ p > .typst-doc {
 } */
 
 img {
-  width: 100%
+  width: 100%;
 }
 
 code {
-  border: 0.1rem solid var(--ifm-code-background)
+  border: none;
+  padding: 0.2rem;
 }

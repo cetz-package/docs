@@ -7,8 +7,8 @@
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
-import typstRender from './src/remark/typst.ts'
-import TypstTheme from './src/theme/typst.ts'
+import typstRender from "./src/remark/typst.ts";
+import TypstTheme from "./src/theme/typst.ts";
 
 const config = {
   title: "CeTZ Documentation",

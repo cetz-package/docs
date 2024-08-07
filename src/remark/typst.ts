@@ -83,7 +83,7 @@ const plugin = () => {
             }
             child.stdin.end();
             child.on("exit", () => resolve());
-          })
+          }),
         );
       }
 

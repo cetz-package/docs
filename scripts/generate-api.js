@@ -4,7 +4,7 @@ const fs = require("fs-extra");
 const comment_regex = /^\/\/\/ ?/gm;
 const parameter_description_regex = /^- (.*?) \((.*?)\)(?: = (.*?))?:(.*)/gm;
 const parameter_regex = /((?:\.\.)?[\w-]+)(?::\s*(.+?))?(?:,|$)/gm;
-const docstring_regex = /((?:\/\/\/.*\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm;
+const docstring_regex = /((?:\/\/\/.*\r?\n)+)^#let ([\w-]+)\(([^=]*)\).*=/gm;
 const returns_regex = /^-> (.*)/gm;
 
 const escape_lut = {

@@ -4,6 +4,7 @@ import MDXComponents from "@theme-original/MDXComponents";
 import Type from "@site/src/components/Type";
 import Function from "@site/src/components/Function";
 import Parameter from "@site/src/components/Parameter";
+import TypstPreview from "@site/src/components/TypstPreview";
 
 export default {
   // Re-use the default mapping
@@ -13,4 +14,5 @@ export default {
   Type,
   Function,
   Parameter,
+  TypstPreview,
 };

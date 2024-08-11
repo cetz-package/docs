@@ -1,0 +1,61 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "preview code";
+  place-items: stretch;
+  gap: 15px;
+  margin: 0 0 var(--ifm-spacing-vertical);
+}
+
+/* CodeBlock Container */
+.wrapper > div:nth-child(1) {
+  margin: 0;
+  display: flex;
+  overflow-x: auto;
+  min-width: 300px;
+  grid-area: code;
+}
+
+.wrapper > :nth-child(2) {
+  grid-area: preview;
+}
+
+/* CodeBlock Content */
+.wrapper > div:nth-child(1) > div:nth-child(1) {
+  flex: 1;
+  height: 100%;
+}
+
+.wrapper > div:nth-child(1) > div:nth-child(1) > pre {
+  width: 100%;
+}
+
+.wrapper > img {
+  background: #fffdf2;
+  border-radius: var(--ifm-pre-border-radius);
+}
+
+.wrapper.vertical {
+  grid-template-rows: auto auto;
+  grid-template-columns: unset;
+  grid-template-areas: "code" "preview";
+}
+
+.wrapper.vertical > :not(img) {
+  min-width: 100%;
+}
+
+.wrapper.vertical > img {
+  max-height: 200px;
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper {
+    grid-template-rows: auto auto;
+    grid-template-columns: unset;
+    grid-template-areas: "code" "preview";
+  }
+  .wrapper > img {
+    max-height: 200px;
+  }
+}

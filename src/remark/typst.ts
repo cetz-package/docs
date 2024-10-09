@@ -82,7 +82,7 @@ const plugin = () => {
               child.stdin.write(typcTemplate[0] + node.value + typcTemplate[1]);
             }
             child.stdin.end();
-            child.on("exit", () => resolve());
+            child.on("exit", () => { resolve() });
           }),
         );
       }
@@ -122,6 +122,7 @@ const plugin = () => {
       }
     });
     await Promise.all(children);
+
   };
   return transformer;
 };

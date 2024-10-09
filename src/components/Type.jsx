@@ -68,6 +68,7 @@ const types = {
   array: { link: "https://typst.app/docs/reference/foundations/array" },
   function: { link: "https://typst.app/docs/reference/foundations/function" },
   direction: { link: "https://typst.app/docs/reference/layout/direction" },
+  ...customTypes
 };
 
 export default function Type({ children }) {

@@ -37,6 +37,9 @@ jobs:
         with:
           cache-dependency-path: dependencies.typ
 
+      - name: Fetching cetz dependencies
+        run: typst c dependencies.typ
+
       - name: Generate api pages
         run: node scripts/generate-api.js
 

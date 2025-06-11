@@ -54,7 +54,7 @@ async function main() {
               }
             }
             if (description !== "") {
-              return `<Parameter name="${name}" types="${types}" ${
+              return `<Parameter name="${name}" types="${types.replace(escape_regex, (c) => escape_lut[c])}" ${
                 def !== undefined
                   ? 'default_value="' +
                     def.replace(escape_regex, (c) => escape_lut[c]) +

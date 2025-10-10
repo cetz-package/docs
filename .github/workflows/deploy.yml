@@ -48,11 +48,8 @@ jobs:
       - name: Fetching cetz dependencies
         run: typst c dependencies.typ
 
-      - name: Building cetz
-        run: cd cetz && just build
-
       - name: Generate api pages
-        run: node scripts/generate-api.js
+        run: cd cetz && just docs
 
       - name: Build website
         run: npm run build

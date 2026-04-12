@@ -52,10 +52,10 @@ jobs:
         run: cd cetz && just build
 
       - name: Generate api pages
-        run: node scripts/generate-api.js
+        run: just generate-api
 
       - name: Build website
-        run: npm run build
+        run: just build
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
